@@ -1,0 +1,143 @@
+/*
+Put any general tooltips related CSS here.
+*/
+
+.tooltype {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative
+}
+
+.tooltype .icon-info {
+    width: 16px;
+    height: 16px;
+    fill: var(--gray-2);
+    fill: var(--secondary);
+    transition: all var(--transition-speed) ease;
+}
+
+th > .tooltype .icon-info {
+    fill: var(--white-1);
+}
+
+.tooltype:hover .icon-info {
+    fill: var(--primary);
+}
+
+th > .tooltype:hover .icon-info {
+    fill: var(--warning-2);
+}
+
+.tooltype:hover .tooltype__content {
+    display: block
+}
+
+.tooltype .tooltype__content {
+    position: absolute;
+    box-shadow: var(--shadow_small) var(--shadow-1-10);
+    z-index: 10;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: .1px;
+    color: var(--secondary);
+    text-transform: initial;
+    width: 260px;
+    display: none
+}
+
+.tooltype .tooltype__content .tooltype__wrapper {
+    background-color: var(--surface);
+    padding: 12px 24px 14px 14px;
+    position: relative;
+    z-index: 1;
+    white-space: normal
+}
+
+.tooltype .tooltype__content a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.tooltype .tooltype__content a:hover {
+    color: var(--tertiary);
+    color: var(--primary) !important;
+}
+
+.tooltype .tooltype__content::before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--surface);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    box-shadow: var(--shadow_small) var(--shadow-1-10);
+    z-index: 0
+}
+
+@media screen and (max-width: 600px) {
+    .tooltype .tooltype__content {
+        max-width: 85vw;
+
+        /* New way, that utilized fixed positioning, that should work everywhere
+        Using top auto/bottom helps ensure it's relative to it's original static position.
+        */
+        position: fixed !important;
+        left: 10px !important;
+        bottom: auto !important;
+        top: auto !important;
+        transform: translate(0, 20px) !important;
+    }
+}
+@media screen and (max-width: 899px) {
+    /* Note: Unortunately have to override again, as this solution, if browsers support it, has to override the above gain*/
+
+    /* For tooltips, additionally, for browser that support :has() - cca 92% browsers
+    We can dynamically target the parent, and give it a relative position, and remove it to the tooltip.
+    This way we can position the tooltip more to the left, and make most of the space
+     */
+    .wrapper *:has( > .tooltype) {
+        position: relative;
+    }
+    .wrapper *:has( > .tooltype) .tooltype {
+        position: unset;
+    }
+    .wrapper *:has( > .tooltype) .tooltype .tooltype__content {
+        position: absolute !important;
+        transform: translate(0%, 20px) !important;
+        bottom: unset !important;
+        top: 0% !important;
+        left: 0 !important;
+    }
+}
+
+.tooltype.right .tooltype__content {
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: calc(100% + 4px)
+}
+
+.tooltype.right .tooltype__content::before {
+    top: calc(50% - 4px);
+    left: -4px
+}
+
+.tooltype.top .tooltype__content {
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: calc(100% + 4px)
+}
+
+.tooltype.top .tooltype__content::before {
+    left: calc(50% - 4px);
+    bottom: -4px
+}

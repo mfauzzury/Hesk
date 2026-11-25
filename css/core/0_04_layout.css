@@ -1,0 +1,179 @@
+/*
+Put general layout related  CSS in here, i.e. like flex, justify, columns, wrappers... etc.
+*/
+
+.d-flex {
+    display: -ms-flexbox;
+    display: flex
+}
+
+.d-flex-center {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.justify-content-center {
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+body.noscroll {
+    width: 100%;
+    height: 100%!important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden
+}
+.clearfix {
+    overflow: auto
+}
+
+.right-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--shadow-1-80);
+    z-index: 20;
+    display: none;
+    overflow: hidden
+}
+
+.right-bar .right-bar__body {
+    width: 584px;
+    max-width: 100vw;
+    overflow: auto;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    background-color: var(--surface);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 22px 32px 0;
+    transition: all var(--transition-speed) ease
+}
+
+.right-bar .right-bar__body::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 96px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+
+.right-bar .right-bar__body h3 a {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: .1px
+}
+
+.right-bar .right-bar__body h3 .icon-back {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px
+}
+
+.right-bar .right-bar__body .checkbox-custom label {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.right-bar .right-bar__body .checkbox-custom input:checked+label {
+    color: var(--primary);
+}
+
+.right-bar .right-bar__body .right-bar__footer {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 16px 32px;
+    box-shadow: 0 2px 8px 0 var(--shadow-1-10);
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0
+}
+
+.right-bar .right-bar__body .right-bar__footer::before {
+    content: "";
+    display: block;
+    background-color: var(--surface);
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    left: 0
+}
+
+@media screen and (max-width: 899px) {
+    .right-bar .right-bar__body {
+        width: 100%;
+        padding: 72px 12px
+    }
+    .right-bar .right-bar__body .btn {
+        height: 40px!important
+    }
+    .right-bar .right-bar__body>h3 {
+        margin: 0;
+        padding: 0 12px;
+        height: 48px;
+        width: 100%;
+        box-shadow: var(--shadow_med) var(--shadow-1-10);
+        background-color: var(--surface);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center
+    }
+    .right-bar .right-bar__body .right-bar__footer {
+        width: 100%;
+        background-color: transparent;
+        z-index: 10;
+        padding-left: 12px;
+        padding-right: 12px
+    }
+    .right-bar .right-bar__body .right-bar__footer::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--surface);
+    }
+    .right-bar .right-bar__body .right-bar__footer .btn {
+        height: 40px!important;
+        width: 120px
+    }
+    .right-bar .right-bar__body .form-group {
+        width: 100%!important
+    }
+}
+.right-bar .right-bar__body .right-bar__footer .btn {
+    width: 152px
+}
+
+.flex {
+    display: flex;
+}

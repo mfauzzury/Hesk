@@ -1,0 +1,5 @@
+Hello,
+
+One or more audit log daily seal checks failed validation:
+
+%%DATES%%

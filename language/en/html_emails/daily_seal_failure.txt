@@ -1,0 +1,5 @@
+<p>Hello,</p>
+<br>
+<p>One or more audit log daily seal checks failed validation:</p>
+<br>
+<p><b>%%DATES%%</b></p>

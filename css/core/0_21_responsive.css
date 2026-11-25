@@ -1,0 +1,479 @@
+/*
+Put any general responsive CSS overrides here.
+ Any module/component specifics responsive CSS can be also put in other files if it makes sense.
+*/
+
+/* ---------------
+ * BEGIN RESPONSIVE LAYOUT IMPROVEMENTS
+ * ---------------
+ *   These css changes below contains additional responsive improvements that override the above original CSS.
+ *   It's kept distinctly separate from above css, for easier decoupling and seeing what was specifically overridden from the original.
+*/
+
+@media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 899px) {
+    .filters {
+        display: none
+    }
+    .check-plus-input {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    .check-plus-input .form-control {
+        margin: 12px;
+        max-width: 320px
+    }
+    .right-bar.profile-edit .step-bar {
+        width: 100%!important
+    }
+    .right-bar.profile-password {
+        width: 100% !important;
+    }
+    .right-bar.profile-edit .step-bar li:last-child {
+        width: auto
+    }
+}
+@media screen and (max-width: 640px) {
+    .btn-hide-article {
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 32px;
+        margin: 6px 0 0 24px
+    }
+    .main__content.emails .emails__head {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    .main__content.emails .emails__head .email--new {
+        margin: 10px 0 10px auto
+    }
+    .main__content.emails .email__tabs .email__list .email__list_article {
+        position: absolute;
+        z-index: 1;
+        right: -100vw;
+        width: 100vw!important;
+        height: 100%
+    }
+    .main__content.emails .email__tabs .email__list .email__list_aside {
+        width: 100%
+    }
+    .main__content.emails .email__tabs .email__list .email__list_descr .head {
+        position: relative
+    }
+    .main__content.emails .email__tabs .email__list .email__list_descr .head .btn-hide-article {
+        position: absolute;
+        left: 24px;
+        top: 4px;
+        bottom: 0;
+        height: 32px;
+        margin: auto
+    }
+    .main__content.emails .email__tabs .email__list .email__list_descr .head .btn-hide-article+* {
+        margin-left: 36px
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .reg__wrap .reg__section {
+        max-width: 96%;
+    }
+}
+
+
+@media screen and (min-width: 1231px) {
+    .settings__form .settings-tool-button {
+        margin-left: 20px;
+    }
+    .settings__form .settings-control-indent {
+        margin-left: 24px;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .settings__form .password-expiration-actions {
+        column-gap: 20px;
+    }
+    .main__content.settings .settings__form .cookies-select {
+        margin-left: 0;
+    }
+    .main__content.settings .settings__form .checkbox-custom > .password-spacer {
+        display: none;
+    }
+
+    /* admin_setting_general */
+
+    .main__content.settings .settings__form .form-group .input-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+    .main__content.settings .settings__form .form-group  .input-wrapper input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* admin_settings_help_desk - note, some of these settings overlap with other setting pages, like misc, etc. */
+    .main__content.settings .settings__form .form-group.flex-row {
+        display: flex;
+    }
+    .main__content.settings .settings__form .form-group.flex-row label {
+        flex: 0 1 max-content;
+        /*flex: 9999 0 100%; !* massive flex-grow, so it takes all the rest of the space*!*/
+        /*justify-content: flex-start;*/
+    }
+    .main__content.settings .settings__form .form-group.flex-row > label {
+        flex: 9999 0 100%; /* massive flex-grow, so it takes all the rest of the space*/
+        justify-content: flex-start;
+    }
+    .main__content.settings .settings__form .form-group.flex-row > label + input + span {
+        margin-left: 5px;
+    }
+    .main__content.settings .settings__form .form-group:not(.force-flex)/*:not(.row)*/ > .input-info,
+    .main__content.settings .settings__form .radio-group > .input-info,
+    .main__content.settings .settings__form .checkbox-group:not(.row) > .input-info {
+        flex: 9999 0 100%; /* massive flex-grow, so it takes all the rest of the space*/
+        justify-content: flex-start;
+    }
+    /* Some exceptions on admin theme settings page, as it looks better without flexing until mobile size */
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row:not(.force-flex) {
+        display: block;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row label {
+        justify-content: flex-end;
+        margin-right: 12px;
+        width: 200px;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row .input-info {
+        justify-content: flex-end;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row .input-info label {
+        margin-right: 0;
+    }
+
+    .main__content.settings .settings__form .form-group.flex-row.force-flex {
+        flex-direction: row;
+    }
+    .main__content.settings.admin_settings_help_desk .settings__form .form-group.flex-row .dropdown-select {
+    }
+    .main__content.settings.admin_settings_help_desk .settings__form .form-group.flex-row:not(.keep-as-row) input {
+        flex: 1;
+        max-width: 100% !important;
+    }
+    .main__content.settings .settings__form .form-group.flex-row input,
+    .main__content.settings .settings__form .form-group.flex-row .dropdown-select label {
+        flex: 1;
+    }
+    .main__content.settings .settings__form .form-group.flex-row input {
+        flex: 0 1 auto;
+        max-width: max-content !important;
+    }
+    /* admin_settings_misc */
+    .main__content.settings .settings__form .form-group.flex-row .selectize-control {
+        flex: 1;
+    }
+    /* admin settings hesk desk */
+    .main__content.settings .settings__form .form-group > span {
+        margin-left: 0;
+    }
+    .main__content.settings .settings__form #skip_notify textarea {
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group > span {
+        margin-left: 12px;
+        margin-right: 0;
+
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.row input {
+        margin-left: 0;
+    }
+    .main__content.settings .settings__form .form-group .color-example {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .main__content.ticket .block--submit .submit-us .dropdown-list {
+        /* prevent overflow of select dropdowns on mid-screen size*/
+        top: calc(100% + 8px);
+        right: 0;
+        left: auto;
+        transform: none;
+    }
+}
+@media screen and (max-width: 899px) {
+    .main__content { /* TODO note -> was there less left padding here deliabrately -> i.e. right padding needs more for i.e. a scrollbar?*/
+        padding: 16px 16px 0 16px !important;
+    }
+    .main__content.knowledgebase form .btn {
+        height: 27px !important;
+    }
+    .main__content.ticket {
+        gap: 0; /* no further gap required, handled by bottom-margin already */
+    }
+    .main__content.ticket .ticket__body {
+        max-width: 100% !important;
+    }
+    .main__content.ticket .ticket__params {
+        max-width: 100% !important;
+    }
+    .main__content.ticket .block--submit .btn {
+        margin: 0;
+        margin-right: 16px;
+    }
+    .main__content.ticket .ticket__body .ticket__body_block:not(:first-child) .block--head {
+        /* got to re-overwrite this for replies on admin, as otherwise they unnecessarily force layout to move to next row */
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-align: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .main__content.ticket .ticket__body .ticket__body_block:not(:first-child) .block--head .more {
+        margin-left: auto;
+    }
+    .main__content.ticket .ticket__body .ticket__body_block:not(:first-child) .block--head time {
+        margin-bottom: 0;
+    }
+
+    .main__content.ticket .ticket__body_block .block--submit {
+        gap: 10px 0px;
+    }
+    .main__content.ticket .block--submit .submit-us {
+        margin: 0;
+        -ms-flex-order: 2;
+        order: 2;
+    }
+
+    .main__content.notice-flash {
+        padding: 0 !important;
+    }
+
+    .table-wrap {
+        padding: 5px;
+    }
+    .table tbody td,
+    .table thead th {
+        padding: 7px 5px;
+    }
+    .table tbody td.table__first_th ,
+    .table thead th.table__first_th {
+        padding: 7px 5px 7px 10px;
+    }
+    .main__content.team .table-wrap tbody td:first-child {
+        padding: 7px 5px 7px 10px;
+    }
+    .right-bar .step-bar {
+        max-width: 100vw !important;
+    }
+
+    /* module_escalate new rule */
+    .right-bar.module-escalate-create .step-item .check-plus-input .checkbox-custom {
+        margin-bottom: 5px !important;
+    }
+    .right-bar.module-escalate-create .step-item .check-plus-input .form-group {
+        margin-left: 0 !important;
+    }
+
+    /* table tickets page */
+    .ticket__body_block {
+        padding: 10px;
+    }
+
+    /* admin_ticket */
+    .more .dropdown-list {
+        right: 20px !important;
+        left: auto !important;
+    }
+
+    /* have to reset this again, as it was overriden by < 1100px query above*/
+    .main__content.ticket .block--submit .submit-us .dropdown-list {
+        top: calc(100% + 8px);
+
+        right: 0;
+        -ms-transform: none;
+        transform: none;
+        left: auto;
+    }
+    .btn--blue-border, .btn-full { /* don't make them lower, as it looks better if they remain high*/
+        height: 40px !important;
+    }
+
+    /* MFA */
+    .main__content.profile .mfa-steps .step-bar {
+        width: 100%;
+    }
+
+    /* custom fields page*/
+    .main__content.tools .table-wrapper.custom-field .buttons p {
+        width: max-content;
+        gap: 10px;
+    }
+    .main__content.tools .table-wrapper.custom-field .buttons p a {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* manage kb */
+    .main__content.knowledge.category .category__list .category__list_table table td.actions .actions--buttons {
+        margin-right: 0;
+    }
+    .main__content.knowledge.category .category__list .category__list_table table td.actions a {
+        width: 28px;
+        height: 28px;
+    }
+
+    .main__content.knowledge .article__detalies_list .dropdown.right .dropdown-list,
+    .main__content.knowledge .article__detalies_list .dropdown-select.right .dropdown-list {
+        /* If calc & vw supported, this will effectively position the dropdown items to the left of the screen
+        A simple left: 0, in this case wouldn't work, as the dropdown has a label on the left of it.
+        */
+        right: auto;
+        left: calc(-50vw + 50%);
+        max-width: calc(100vw - 30px);
+    }
+
+    /* START manage_users */
+    .team-create .right-bar__body .defaults-section .check-plus-input .form-group:not(:first-child) {
+        margin-left: 20px;
+    }
+
+    /* START custom_fields */
+    .right-bar.create-custom-field .item--section .radio-custom {
+        flex-wrap: wrap;
+        gap: 5px 0;
+    }
+
+    /*  START profile */
+    .right-bar.profile-edit .step-item.step-3 .defaults-section .form-group:last-child {
+        width: 40px !important;
+        margin-left: 20px;
+    }
+
+    /* START settings */
+    .settings__form_block .dropdown.center .dropdown-list,
+    .settings__form_block .dropdown-select.center .dropdown-list {
+        right: auto;
+        left: 0;
+        max-width: calc(100vw - 20px);
+        transform: none;
+    }
+    .main__content.settings .settings__form .checkbox-group.row {
+        gap: 0 10px;
+    }
+    .main__content.settings .settings__form .checkbox-group h5 {
+        flex-shrink: 1;
+    }
+    .main__content.settings .settings__form .checkbox-group .switch-checkbox {
+        margin-top: 7px;
+    }
+    .main__content.settings .settings__form .checkbox-group.row label {
+        margin-left: 15px !important;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .show_tickets .search-name {
+        width: 150px;
+    }
+    .wrapper .main .main__content > section > h2 {
+        margin-left: 0;
+        padding-left: 0;
+        min-width: 40%;
+    }
+    .main__content.profile .mfa__head {
+        margin-right: auto;
+    }
+
+    .main__content.ticket .block--submit .submit-us .dropdown-list {
+        right: auto;
+        left: 0;
+        max-width: calc(100vw - 30px);
+    }
+
+    /* for Theme settings, we only need to go into a new row on mobile */
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row {
+        display: flex;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row label {
+        justify-content: flex-start;
+        margin-right: 0;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row .input-info {
+        justify-content: flex-start;
+        margin-right: 0;
+        width: 200px;
+    }
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row .input-info + .btn,
+    .main__content.settings.admin_settings_theme .settings__form .form-group.flex-row .input-info + .dropdown-select{
+        margin-left: 0 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-full {
+        min-width: max-content;
+    }
+    .show_tickets .checkbox-group .row .checkbox-custom {
+        min-width: auto;
+        width: 100%;
+    }
+    .clear-on-mobile {
+        display: block;
+    }
+    .main__content { /* TODO note -> was there less left padding here deliabrately -> i.e. right padding needs more for i.e. a scrollbar?*/
+        /*padding: 5px 5px 0 5px;*/
+        padding: 16px 5px 0 5px !important;
+    }
+    .inline-bottom {
+        display: inline-block; /* undo the overwrite, seems unnecessary */
+    }
+
+    .show_tickets .search-name {
+        width: 120px;
+        max-width: 30%;
+    }
+    .main__content.team .team__head .buttons {
+        margin-left: 20px;
+        text-align: right;
+    }
+    .main__content.team .team__head .buttons .btn {
+        /*width: 100%;*/
+        max-width: 100%;
+    }
+    .main__content.team .team__head .buttons .btn:not(:first-child) {
+        margin-top: 5px;
+    }
+
+    /* admin_settings_general */
+    .main__content.settings .settings__form .form-group.flex-row {
+        display: block;
+    }
+    .main__content.settings .settings__form .form-group.flex-row > label {
+        display: block;
+    }
+    .main__content.settings .settings__form .form-group.flex-row .dropdown-select {
+        margin-left: 0;
+    }
+
+    /* admin_Settings_misc inputs & label better layout */
+    .main__content.settings .settings__form .form-group.flex-row input {
+        flex: 0 1 auto;
+        max-width: 100% !important;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .ticket__body_block .time-and-canned .canned-options .form-group {
+        margin-top: 10px;
+    }
+}
+
+/* ---------------
+ * END RESPONSIVE LAYOUT IMPROVEMENTS
+ * ---------------
+*/

@@ -1,0 +1,547 @@
+/*
+This file should only be used by hesk clients to apply any custom overwrites to core files,
+and ensure these changes are included in the bundled css.
+
+Please only change this file if you know what you are doing.
+Any general thematic changes should rather be done as part of /theme changes of theme_overrides.css
+*/
+
+/* =========================================================
+   Admin login revamp: split screen (brand panel + form)
+   ========================================================= */
+.reg__wrap:has(.login-brand) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: calc(100vh - 72px);
+    background: var(--surface, #fff);
+}
+.login-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 64px 40px;
+    color: var(--surface, #fff);
+    background-color: var(--primary, #111);
+    background-image: radial-gradient(rgba(255, 255, 255, .13) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+.login-brand__inner { margin: auto 0; max-width: 460px; }
+.login-brand__tag {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+.login-brand__title {
+    margin: 0 0 16px;
+    font-size: clamp(34px, 4.4vw, 56px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -.5px;
+    color: inherit;
+}
+.login-brand__text { margin: 0 0 28px; font-size: 18px; line-height: 1.55; color: rgba(255, 255, 255, .78); }
+.login-brand__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.login-brand__list li { position: relative; padding-left: 28px; font-size: 15px; font-weight: 700; }
+.login-brand__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: radial-gradient(#fff 38%, transparent 42%);
+}
+.login-brand__foot { font-size: 13px; color: rgba(255, 255, 255, .6); }
+
+/* the form side: flat, centred, no card */
+.reg__wrap:has(.login-brand) .reg__section {
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 440px;
+    padding: 40px 24px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+.reg__wrap:has(.login-brand) .reg__heading { font-size: 30px; font-weight: 900; margin: 0 0 24px; letter-spacing: -.3px; }
+.reg__wrap:has(.login-brand) .reg__box { max-width: none; }
+.reg__wrap:has(.login-brand) .form-control { border-radius: 8px; height: 48px; }
+.reg__wrap:has(.login-brand) .btn-full { width: 100%; border-radius: 8px; height: 50px; }
+
+@media (max-width: 899px) {
+    .reg__wrap:has(.login-brand) { grid-template-columns: 1fr; grid-template-rows: auto 1fr; min-height: 0; }
+    .login-brand { padding: 36px 24px 28px; }
+    .login-brand__list, .login-brand__text { display: none; }
+    .login-brand__title { font-size: 34px; margin-bottom: 0; }
+    .login-brand__inner { margin: 0; }
+    .login-brand__foot { display: none; }
+    .reg__wrap:has(.login-brand) .reg__section { padding: 32px 20px; }
+}
+
+
+/* Admin side menu: smaller icons (was 24px) */
+.main-menu .listitem__icon .icon,
+.main-menu .navbar__toggler .icon {
+    width: 18px;
+    height: 18px;
+}
+.main-menu .listitem__icon .icon.icon-categories { padding: 1px; }
+
+/* Admin side menu: tighter rows (gap 8px -> 4px, row height 48px -> 40px) */
+.main-menu .navbar__list li { margin-bottom: 4px; }
+.main-menu .listitem__icon,
+.main-menu .listitem__icon a,
+.main-menu .listitem__caption,
+.main-menu .submenu__listitem { height: 40px; }
+.main-menu .listitem__notification { top: 8px; }
+
+/* Admin tables: tighter row padding (was 21px top/bottom) */
+.table tbody td,
+.table tbody tr .table__first_td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Admin: standard page title in the top bar (with the page's "i" tip next to it) */
+.header .header__left { display: flex; align-items: center; }
+.header .header__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding-left: 24px;
+    min-width: 0;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .1px;
+    line-height: 1.2;
+    color: var(--surface, #fff);
+}
+.header .header__title_text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.header .header__title .tooltype .icon-info,
+.header .header__title .tooltype:hover .icon-info { fill: #fff; }
+.header .header__title .tooltype { flex: none; }
+/* open the tip downwards from the bar instead of sideways-centred */
+.header .header__title .tooltype.right .tooltype__content {
+    top: calc(100% + 12px);
+    left: -8px;
+    transform: none;
+    color: #111;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: .1px;
+}
+.header .header__title .tooltype.right .tooltype__content::before { top: -4px; left: 14px; }
+@media (max-width: 899px) { .header .header__title { display: none; } }
+
+/* Admin top bar: 56px tall (was 64px). Sidebar logo header matches so they stay aligned. */
+@media (min-width: 900px) {
+    .header .header__right,
+    .header .profile__item.profile__item--mail,
+    .header .profile__item.profile__item--notification,
+    .header .profile__user {
+        height: 56px;
+    }
+    .header .profile__item.profile__item--mail,
+    .header .profile__item.profile__item--notification {
+        width: 56px;
+    }
+    .main-menu .navbar__header {
+        height: 56px;
+        padding: 13px 0;
+    }
+}
+
+/* Admin logo: smaller text so longer help desk names fit (was 24px) */
+.main-menu .navbar__logo,
+.header__mobile .navbar__logo {
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/* Top-bar tip popup: bordered card (no shadow in this theme) */
+.header .header__title .tooltype.right .tooltype__content { top: calc(100% + 10px); }
+.header .header__title .tooltype .tooltype__wrapper {
+    border: 1px solid var(--white-8, #d4d4d4);
+    border-radius: 8px;
+}
+.header .header__title .tooltype.right .tooltype__content::before { display: none; }
+
+
+/* =========================================================
+   Admin ticket list: overview panel (admin_main.php)
+   ========================================================= */
+.tk-overview { margin: 8px 0 28px; }
+.tk-overview__head {
+    padding: 28px 32px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    color: var(--surface, #fff);
+    background-color: var(--primary, #111);
+    background-image: radial-gradient(rgba(255, 255, 255, .13) 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+.tk-overview__hello {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .65);
+}
+.tk-overview__headline { margin: 0 0 6px; font-size: clamp(22px, 3vw, 32px); font-weight: 900; line-height: 1.15; letter-spacing: -.3px; }
+.tk-overview__sub { margin: 0; font-size: 15px; color: rgba(255, 255, 255, .78); }
+.tk-overview__sub strong { color: #fff; }
+
+.tk-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tk-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px;
+    background: var(--surface, #fff);
+    border: 1px solid var(--white-8, #d4d4d4);
+    border-radius: 12px;
+    color: var(--font__pri-clr, #111) !important;
+    text-decoration: none;
+    transition: transform .15s ease, border-color .15s ease, background-color .15s ease;
+}
+.tk-stat:hover { transform: translateY(-2px); border-color: var(--primary, #111); background: var(--white-4, #f0f0f0); }
+.tk-stat__label { font-size: 13px; font-weight: 700; min-height: 22px; display: flex; align-items: center; }
+.tk-stat__value { font-size: 36px; font-weight: 900; line-height: 1; letter-spacing: -1px; }
+.tk-stat__note { font-size: 12px; opacity: .65; }
+.tk-stat--alert { border-color: #d11; }
+.tk-stat--alert .tk-stat__value, .tk-stat--alert .tk-stat__label { color: #d11; }
+
+
+/* =========================================================
+   Admin ticket table: cleaner look
+   ========================================================= */
+.main__content.tickets .table-wrap { padding: 0; }
+
+/* header: light, no heavy black bar */
+.table.ticket-list { --table_row__bg-hover: #f6f6f6; }
+.table.ticket-list thead { background: #f6f6f6; color: #555; height: auto; }
+.table.ticket-list thead th {
+    padding: 14px 16px;
+    font-size: 11px;
+    letter-spacing: .8px;
+    border-bottom: 1px solid var(--white-8, #d4d4d4);
+}
+.table.ticket-list thead th:not(:first-child) { border-left: 0; }
+.table.ticket-list thead th:first-child { border-top-left-radius: 11px; }
+.table.ticket-list thead th:last-child { border-top-right-radius: 11px; }
+.table.ticket-list thead .sort { color: #555; }
+.table.ticket-list thead th .handle::before { border-bottom-color: #aaa; }
+.table.ticket-list thead th .handle::after { border-top-color: #aaa; }
+.table.ticket-list thead th.asc .handle::before,
+.table.ticket-list thead th.desc .handle::after { border-bottom-color: #111; border-top-color: #111; }
+
+/* rows: no stripes, no column dividers, soft separators */
+.table.ticket-list tbody tr,
+.table.ticket-list tbody tr:nth-child(even) { background-color: #fff; border-bottom: 1px solid #ececec; }
+.table.ticket-list tbody tr:last-child { border-bottom: 0; }
+.table.ticket-list tbody td:not(:first-child) { border-left: 0; }
+
+/* links */
+.table.ticket-list tbody a.link,
+.table.ticket-list tbody td a { text-decoration: none; }
+.table.ticket-list tbody td.subject a:hover,
+.table.ticket-list tbody td.trackid a:hover { text-decoration: underline; }
+.table.ticket-list tbody td.trackid a {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+.table.ticket-list tbody td.subject { min-width: 240px; }
+.table.ticket-list tbody td.subject a { font-weight: 700; }
+
+/* unassigned rows (class "new"): only ID and subject stay bold */
+.table.ticket-list tbody tr.new td { font-weight: 400; }
+.table.ticket-list tbody tr.new td.trackid a,
+.table.ticket-list tbody tr.new td.subject a { font-weight: 800; }
+
+/* customer avatar */
+.tk-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: var(--primary, #111);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    vertical-align: middle;
+}
+
+/* quick filter buttons as pills */
+.main__content.tickets .filters__listing .btn.btn-transparent { border-radius: 999px; }
+
+/* ticket table: align the priority cell with the other cells */
+.table.ticket-list tbody td.has-flex-item { vertical-align: middle; }
+.table.ticket-list .td-flex { align-items: center; gap: 4px; }
+.table.ticket-list tbody tr.bg-critical { border-top-color: transparent; }
+
+
+/* =========================================================
+   Admin ticket detail page
+   ========================================================= */
+/* header strip */
+.tkd-head { margin-bottom: 16px; }
+.tkd-head__back { display: inline-block; margin-bottom: 12px; font-size: 13px; font-weight: 700; color: var(--font__sec-clr, #555) !important; text-decoration: none; }
+.tkd-head__back:hover { color: var(--font__pri-clr, #111) !important; text-decoration: underline; }
+.tkd-head__row { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.tkd-head__id {
+    padding: 4px 12px;
+    border-radius: 8px;
+    background: var(--primary, #111);
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .3px;
+}
+.tkd-head__priority { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 700; }
+.tkd-head__meta { margin: 10px 0 0; font-size: 13px; opacity: .7; }
+
+/* message cards */
+.main__content.ticket .ticket__body_block { border-radius: 12px; }
+.main__content.ticket .ticket__body_block.response {
+    background: #f6f6f6;
+    border-left: 4px solid var(--primary, #111);
+}
+.main__content.ticket .ticket__body_block .block--head .contact b { font-weight: 800; }
+
+/* reply form: light timer bar, rounded fields */
+.main__content.ticket .ticket__body_block .block--timer {
+    background: #f6f6f6;
+    border: 1px solid var(--white-8, #d4d4d4);
+    border-radius: 8px;
+}
+.main__content.ticket .ticket__body_block .block--timer span { color: var(--font__pri-clr, #111); }
+.main__content.ticket .ticket__body_block .block--timer a .icon { fill: var(--font__pri-clr, #111); }
+.main__content.ticket .ticket__body_block .block--message textarea { border-radius: 8px; min-height: 140px; }
+.main__content.ticket .ticket__body_block .block--submit .btn,
+.main__content.ticket .ticket__body_block .block--attach .btn { border-radius: 8px; }
+
+/* side panel cards */
+.main__content.ticket .ticket__params .params--block,
+.main__content.ticket .ticket__params .params--bar { border-radius: 12px; }
+.main__content.ticket .ticket__body_block .block--timer label,
+.main__content.ticket .ticket__body_block .block--timer b { color: var(--font__pri-clr, #111) !important; }
+.main__content.ticket .ticket__body_block .block--timer a svg { fill: var(--font__pri-clr, #111); }
+
+/* message avatars (sit on the top-left corner of each message card) */
+.main__content.ticket .ticket__body_block { position: relative; }
+.tk-msg-avatar {
+    position: absolute;
+    top: 14px;
+    left: -12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--primary, #111);
+    border: 2px solid var(--primary, #111);
+    box-shadow: 0 0 0 3px #fff;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1;
+}
+.tk-msg-avatar--staff { background: var(--primary, #111); color: #fff; }
+
+
+/* =========================================================
+   Admin-wide polish (all pages): tables, cards, fields, buttons
+   ========================================================= */
+
+/* --- tables: same clean look as the ticket list --- */
+.table { --table_row__bg-hover: #f6f6f6; }
+.table thead { background: #f6f6f6; color: #555; height: auto; }
+.table thead th {
+    padding: 14px 16px;
+    font-size: 11px;
+    letter-spacing: .8px;
+    border-bottom: 1px solid var(--white-8, #d4d4d4);
+}
+.table thead th:not(:first-child) { border-left: 0; }
+.table thead th:first-child { border-top-left-radius: 11px; }
+.table thead th:last-child { border-top-right-radius: 11px; }
+.table thead .sort { color: #555; }
+.table thead th .handle::before { border-bottom-color: #aaa; }
+.table thead th .handle::after { border-top-color: #aaa; }
+.table thead th.asc .handle::before,
+.table thead th.desc .handle::after { border-bottom-color: #111; border-top-color: #111; }
+.table tbody tr,
+.table tbody tr:nth-child(even) { background-color: #fff; border-bottom: 1px solid #ececec; }
+.table tbody tr:last-child { border-bottom: 0; }
+.table tbody td:not(:first-child) { border-left: 0; }
+.table tbody td a.link { text-decoration: none; }
+.table tbody td a.link:hover { text-decoration: underline; }
+
+/* table card: full width, no inner padding, rounded */
+.main__content .table-wrap { padding: 0; width: 100%; box-sizing: border-box; border-radius: 12px; }
+
+/* --- cards: one corner radius everywhere (12px) --- */
+.theme_black_white .navlink,
+.theme_black_white .navlink-condensed,
+.theme_black_white .notification-flash,
+.theme_black_white .main__content.notifications .notifications__list,
+.theme_black_white .right-bar .right-bar__body,
+.theme_black_white .main__content.knowledge .article__detalies,
+.theme_black_white .main__content.profile .profile__wrapper,
+.theme_black_white .main__content.settings .settings__status,
+.theme_black_white .users-online,
+.theme_black_white .form__search .form__search_results,
+.theme_black_white .reg__section,
+.theme_black_white .table-wrap,
+.theme_black_white .loading-message,
+.theme_black_white .header .profile__item.profile__item--notification .notification-list,
+.theme_black_white .header .profile__user .profile__menu,
+.theme_black_white .select-items,
+.theme_black_white .ticket__body_block,
+.theme_black_white .ticket__params .params--block,
+.theme_black_white .ticket__params .params--bar,
+.theme_black_white .main__content.templates .ticket__list,
+.theme_black_white .main__content.templates .response__list,
+.theme_black_white .main__content.knowledge .knowledge__tabs .knowledge__list,
+.theme_black_white .main__content.knowledge.category .category__list,
+.theme_black_white .main__content.emails .email__tabs,
+.theme_black_white .email__list_article,
+.theme_black_white .new-message,
+.theme_black_white .main__content.reports .reports__table,
+.theme_black_white .main__content.tools .table-wrapper,
+.theme_black_white .main__content.search .templates__list,
+.theme_black_white .main__content.settings .settings__theme_preview,
+.theme_black_white .topmenu__dropdown {
+    border-radius: 12px;
+}
+
+/* --- form fields: rounded, softer border, clear focus --- */
+.main__content .form-control,
+.main__content textarea,
+.main__content input[type="text"],
+.main__content input[type="email"],
+.main__content input[type="password"],
+.main__content input[type="number"],
+.main__content input[type="search"],
+.main__content input[type="url"],
+.main__content .selectize-input {
+    border-radius: 8px;
+}
+.main__content .form-control,
+.main__content textarea.form-control,
+.main__content input.form-control {
+    border-color: var(--white-9, #c8c8c8);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.main__content .form-control:focus,
+.main__content textarea:focus,
+.main__content input.form-control:focus {
+    border-color: var(--primary, #111);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .08);
+}
+
+/* --- buttons --- */
+.main__content .btn-full,
+.main__content .btn--blue-border,
+.main__content .btn-border,
+.header__right .btn-full { border-radius: 8px; }
+
+/* --- Settings pages: every section is a card --- */
+.main__content.settings .settings__form_block {
+    background: var(--surface, #fff);
+    border: 1px solid var(--white-8, #d4d4d4);
+    border-radius: 12px;
+    padding: 12px 32px 28px;
+    margin: 0 0 20px;
+}
+.main__content.settings .settings__form_block + .settings__form_block { border-top: 1px solid var(--white-8, #d4d4d4); }
+.main__content.settings .settings__form_block { margin-left: 16px; }
+
+/* other table wrapper used on the Tools pages */
+.main__content .table-wrapper { width: 100%; box-sizing: border-box; }
+
+/* rich-text editor (message boxes) */
+.tox.tox-tinymce {
+    border-radius: 8px !important;
+    border-color: var(--white-9, #c8c8c8) !important;
+}
+
+/* message boxes (new ticket, reply forms) */
+.ticket__body_block .block--message { border-radius: 8px; }
+.main__content .ticket__body_block .block--message textarea {
+    border-color: var(--white-9, #c8c8c8);
+    border-radius: 8px;
+    min-height: 160px;
+}
+.main__content .ticket__body_block .block--message textarea:focus {
+    border-color: var(--primary, #111);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .08);
+}
+/* Tools tables fill their card */
+.main__content .table-wrapper .table { width: 100%; }
+
+/* HESK's @mention message editor (replaces the textarea on reply/new ticket forms) */
+.hesk-mention-editor {
+    border-color: var(--white-9, #c8c8c8);
+    border-radius: 8px;
+    min-height: 140px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+.hesk-mention-editor:focus {
+    border-color: var(--primary, #111);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, .08);
+}
+
+
+/* =========================================================
+   Card padding standard
+   - content / form cards:  24px 28px
+   - list cards:            12px (their rows have their own padding)
+   - small info cards:      16px 20px
+   - table cards:           0 (the table cells provide the padding)
+   ========================================================= */
+.main__content .table-wrap:not(:has(table)),
+.main__content .table-wrapper:not(:has(table)),
+.main__content .new-message {
+    padding: 24px 28px;
+}
+.main__content.templates .response__list,
+.main__content.templates .ticket__list,
+.main__content.search .templates__list,
+.main__content.knowledge .knowledge__tabs .knowledge__list,
+.main__content.knowledge.category .category__list {
+    padding: 12px;
+}
+.main__content.settings .settings__status,
+.main__content.settings .settings__theme_preview,
+.main__content.knowledge .article__detalies,
+.users-online {
+    padding: 16px 20px;
+}
+
+/* make the padding standard win over the earlier page-specific table-card rules */
+.wrapper .main .main__content .table-wrap:not(:has(table)),
+.wrapper .main .main__content .table-wrapper:not(:has(table)) {
+    padding: 24px 28px;
+}

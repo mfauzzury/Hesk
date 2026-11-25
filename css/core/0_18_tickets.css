@@ -1,0 +1,2320 @@
+
+/* START tickets-related styling */
+
+.filters__listing:not(.is-collapsed) .toggler-value {
+    display: none
+}
+
+.filters__listing:not(.is-collapsed) #btnToggleFilters .icon-chevron-down {
+    -ms-transform: scaleY(-1);
+    transform: scaleY(-1)
+}
+
+.filters__listing .filter-item {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin: 0 0 8px 10px;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    cursor: pointer
+}
+
+.filters__listing .filter-item input {
+    display: none
+}
+
+.filters__listing .filter-item input[type="checkbox"]:checked+.item--body {
+    border-color: var(--tertiary) !important;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+}
+
+.filters__listing .filter-item.group .item--body {
+    border-width: 2px;
+    font-size: 14px;
+    padding: 0 12px
+}
+
+.filters__listing .filter-item.group .item--body b {
+    margin-left: 8px;
+    font-weight: 700
+}
+
+.filters__listing .filter-item .item--body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 32px;
+    padding: 0 2px 0 12px;
+    border: solid 1px var(--white-9);
+    font-size: 12px;
+    background-color: var(--surface);
+    transition: all var(--transition-speed) ease;
+    color: var(--secondary);
+}
+
+.filters__listing .filter-item .item--body:hover {
+    border-color: transparent;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    border-radius: 2px
+}
+
+.filters__listing .filter-item .item--body span {
+    line-height: 1
+}
+
+.filters__listing .filter-item .item--body .close {
+    display: -ms-flexbox;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 5px;
+    cursor: pointer
+}
+
+.filters__listing .filter-item .item--body .close .icon-close {
+    width: 6px;
+    height: 6px;
+    fill: var(--gray-3);
+}
+
+.filters__listing .btn {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    margin: 0 0 8px 10px;
+    letter-spacing: .1px;
+    padding: 0 12px;
+    -ms-flex-align: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px
+}
+
+.filters__listing .btn.is-bold {
+    border-width: 1px;
+}
+
+.filters__listing .btn.is-selected {
+    border-color: var(--primary);
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    background-color: var(--primary);
+    color: var(--surface);
+}
+
+.filters__listing .btn.is-selected .filters__btn-value {
+    color: inherit
+}
+
+.filters__listing .btn .close {
+    display: -ms-flexbox;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 5px
+}
+
+.filters__listing .btn .close .icon-close {
+    width: 6px;
+    height: 6px;
+    fill: var(--gray-3);
+}
+
+.filters__btn-value {
+    margin-left: 7px;
+    font-weight: 700
+}
+
+.filters__listing .btn.is-bookmarks {
+    background-color: var(--success-2) !important;
+    border: 1px solid var(--green-1);
+    color: var(--primary);
+}
+
+.filters__listing .btn.is-bookmarks:hover {
+    background-color: var(--green-1) !important;
+    color: var(--white-1);
+}
+
+.is-bookmark {
+    fill: var(--green-1) !important;
+    transform: rotate(50deg);
+    margin-left: 3px;
+    margin-right: 6px;
+}
+
+.filters__listing .btn.is-due-soon {
+    background-color: var(--warning-2) !important;
+    border: 1px solid color-mix(in srgb, var(--yellow-1) 55%, var(--primary) 45%);
+    color: color-mix(in srgb, var(--yellow-1) 55%, var(--primary) 45%);
+}
+
+.filters__listing .btn.is-due-soon:hover {
+    background-color: color-mix(in srgb, var(--yellow-1) 65%, var(--primary) 35%) !important;
+    color: var(--white-1)
+}
+
+.filters__listing .btn.is-overdue {
+    background-color: var(--error-2) ! important;
+    border: 1px solid var(--error);
+    color: var(--error);
+    border: 1px solid var(--red-2);
+    color: color-mix(in srgb, var(--red-2) 75%, var(--primary) 25%);  /* WCAG contrast improvement */
+}
+
+.filters__listing .btn.is-overdue:hover {
+    background-color: var(--error) !important;
+    color: var(--white-1);
+}
+
+.filters__listing .btn.is-due-soon.is-selected {
+    border-width: 1px;
+    background-color: color-mix(in srgb, var(--yellow-1) 40%, var(--primary) 60%) !important;
+    color: var(--white-1);
+}
+
+.filters__listing .btn.is-overdue.is-selected {
+    background-color: var(--red-2) !important;
+    color: var(--white-1);
+}
+
+.filters__action {
+    float: left
+}
+
+.filters__action .btn {
+    margin-right: 6px;
+    margin-bottom: 0;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.filtersListingCollapsed {
+    display: none
+}
+
+.filters-mobile {
+    margin-bottom: 24px;
+    display: none
+}
+
+.filters-mobile .filters__listing {
+    overflow: hidden;
+    height: 34px
+}
+
+.filters-mobile .filters__listing .btn {
+    margin-left: 0;
+    margin-right: 10px
+}
+
+.filters-mobile [data-action="mobile-filters-more"] {
+    margin-top: 8px
+}
+
+.filters-mobile [data-action="mobile-filters-hide"] {
+    display: none
+}
+
+.filters-mobile [data-action="mobile-filters-hide"] .icon-chevron-down {
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.filters-mobile.open .filters__listing {
+    height: auto
+}
+
+.filters-mobile.open [data-action="mobile-filters-more"] {
+    display: none
+}
+
+.filters-mobile.open [data-action="mobile-filters-hide"] {
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+@media screen and (max-width: 899px) {
+    .filters-mobile {
+        display: block
+    }
+}
+
+.main__content.ticket {
+    padding: 23px 32px 50px 16px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: center
+}
+
+.main__content.ticket .icon-chevron-down {
+    margin-top: 1px
+}
+
+@media screen and (max-width: 899px) {
+    .main__content.ticket {
+        padding: 16px 12px 24px;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+    .main__content.ticket .ticket__body {
+        margin-right: 0
+    }
+    .main__content.ticket .ticket__body .block--head {
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-align: start;
+        align-items: flex-start
+    }
+    .main__content.ticket .ticket__body .block--head time {
+        margin-left: 0;
+        margin-bottom: 8px
+    }
+    .main__content.ticket .ticket__body .block--head .more {
+        margin-left: 0
+    }
+    .more .dropdown-list {
+        right: auto!important;
+        left: 0!important
+    }
+    .main__content.ticket .block--submit {
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    .main__content.ticket .block--submit .btn {
+        height: 40px!important;
+        margin: 0 auto 16px
+    }
+    .main__content.ticket .block--submit .btn-full {
+        -ms-flex-order: 1;
+        order: 1
+    }
+    .main__content.ticket .block--submit .btn-border {
+        -ms-flex-order: 2;
+        order: 2
+    }
+    .main__content.ticket .block--submit::before {
+        content: "";
+        -ms-flex-order: 3;
+        order: 3;
+        width: 100%;
+        height: 0
+    }
+    .main__content.ticket .block--submit .submit-us {
+        -ms-flex-order: 4;
+        order: 4;
+        margin: 0 auto
+    }
+    .main__content.ticket .block--submit .submit-us .dropdown-list {
+        top: calc(100% + 8px);
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%)
+    }
+    .main__content.ticket .ticket__params {
+        width: 100%
+    }
+}
+
+.ticket__body {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-right: 24px
+}
+
+.ticket__body_block {
+    background-color: var(--ticket_body__bg);
+    margin-bottom: 12px;
+    border-radius: 2px;
+    box-shadow: var(--shadow_smaller) var(--shadow-1-30);
+    padding: 15px 30px 34px;
+    text-align: justify;
+}
+
+.ticket__body_block.response {
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    background-color: var(--ticket_response__bg);
+}
+
+.ticket__body_block h3 {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.22;
+    letter-spacing: .1px
+}
+
+.ticket__body_block .block--head {
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 0;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+}
+
+.ticket__body_block.original-message .block--head {
+    margin-top: 16px!important
+}
+
+.ticket__body_block .block--head .contact {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    /* color: var(--secondary); */
+}
+
+.ticket__body_block .block--head .contact.grid {
+    display: grid;
+    row-gap: 10px;
+}
+
+.ticket__body_block .block--head .contact.grid .requester-header {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: right;
+}
+
+.ticket__body_block .block--head .contact.grid .requester-header span {
+    vertical-align: middle;
+}
+
+.ticket__body_block .block--head .contact.grid .requester {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ticket__body_block .block--head .contact.grid .cc-header {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: right;
+}
+
+.ticket__body_block .block--head .contact.grid .cc-header span {
+    vertical-align: middle;
+}
+
+.ticket__body_block .block--head .contact.grid .cc {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.ticket__body_block .block--head .contact>span {
+    color: var(--secondary);
+}
+
+.ticket__body_block .block--head .contact b {
+    margin: 0 4px;
+    font-weight: 700;
+    color: var(--gray-7);
+    text-align: left;
+}
+
+.ticket__body_block .block--head .contact time {
+    margin: 0 4px;
+    flex: 0 1 auto;
+    text-align: left;
+}
+
+.ticket__body_block .block--head .contact .dropdown {
+    margin-left: 8px;
+    cursor: pointer;
+    position: static;
+}
+
+.ticket__body_block .block--head .contact .dropdown.customer {
+    margin-left: 8px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow_smaller) var(--shadow-1-30)
+}
+
+.ticket__body_block .block--head .contact .dropdown.customer label {
+    padding: 5px;
+}
+
+.ticket__body_block .block--head .contact .dropdown span {
+    font-weight: 700
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li {
+    padding: 0 12px;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li:nth-child(1), .ticket__body_block .block--head .contact .dropdown .dropdown-list li:nth-child(2) {
+    background-color: transparent!important;
+    cursor: auto
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li .title {
+    color: var(--gray-2);
+    margin-right: 8px;
+    min-width: 36px
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li .value {
+    font-weight: 400;
+    color: var(--dropdown_list_item__clr);
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li a {
+    color: var(--primary) !important;
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li.noclose a:hover {
+    color: var(--secondary) !important;
+}
+
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li a:hover {
+    color: var(--white-1) !important;
+}
+
+.ticket__body_block .block--head .contact .icon-chevron-down {
+    width: 8px;
+    height: 8px
+}
+
+.ticket__body_block .block--head time {
+    margin: 0 10px;
+    color: var(--font__sec-clr);
+    align-self: start;
+}
+
+.ticket__body_block .block--head .more {
+    margin-left: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: default;
+    margin-right: -24px;
+    padding-right: 24px
+}
+
+.ticket__body_block .block--head .more span {
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--head .more .icon-chevron-down {
+    fill: var(--gray-2);
+    width: 8px;
+    height: 8px
+}
+
+.ticket__body_block .block--head .more a {
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--head .more a svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--gray-2);
+    margin-right: 10px;
+    vertical-align: text-bottom
+}
+
+.ticket__body_block .block--head .more a:hover {
+    color: var(--primary);
+}
+
+.ticket__body_block .block--head .more a:hover svg {
+    fill: var(--primary)
+}
+
+.ticket__body_block .block--head .more label:hover>span {
+    color: var(--primary)
+}
+
+.ticket__body_block .block--head .more label:hover>svg {
+    fill: var(--primary)
+}
+
+.ticket__body_block .block--head .more .dropdown-list a {
+    color: var(--primary);
+    -ms-flex-pack: normal;
+    justify-content: normal
+}
+
+.ticket__body_block .block--head .more .dropdown-list a:hover {
+    color: var(--surface);
+}
+
+.ticket__body_block .block--description {
+    margin: 16px 0 0;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: .1px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.ticket__body_block .block--description p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.375;
+    /*color: var(--gray-7);*/
+    color: var(--font__pri-clr);
+}
+
+.ticket__body_block.original-message .block--description p {
+    margin-bottom: 16px
+}
+
+p.rate {
+    margin-top: 10px;
+    text-align: right;
+    font-style: italic;
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--notes {
+    margin-top: 26px
+}
+
+.ticket__body_block .block--notes .note {
+    border: solid 1px color-mix(in srgb, var(--warning-2) 72%, var(--yellow-1) 28%);
+    background-color: var(--warning-2);
+    background-color: color-mix(in srgb, var(--warning-2) 85%, var(--warning) 15%);
+    padding: 8px 8px 16px;
+    margin-bottom: 8px
+}
+
+.ticket__body_block .block--notes .note .note__head {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.ticket__body_block .block--notes .note .note__head .name {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--secondary);
+}
+
+.ticket__body_block .block--notes .note .note__head .name span {
+    margin-right: 8px
+}
+
+.ticket__body_block .block--notes .note .note__head .name b {
+    color: var(--font__pri-clr);
+    margin: 0
+}
+
+.ticket__body_block .block--notes .note .note__head .name time {
+    color: var(--secondary);
+    white-space: nowrap
+}
+
+.ticket__body_block .block--notes .note .note__head .actions {
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: -5px
+}
+
+.ticket__body_block .block--notes .note .note__head .actions button, .ticket__body_block .block--notes .note .note__head .actions a {
+    width: 32px;
+    height: 32px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 0
+}
+
+.ticket__body_block .block--notes .note .note__head .actions button svg, .ticket__body_block .block--notes .note .note__head .actions a svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--gray-3);
+}
+
+.ticket__body_block .block--notes .note .note__head .actions button:hover svg, .ticket__body_block .block--notes .note .note__head .actions a:hover svg {
+    fill: var(--primary)
+}
+
+.ticket__body_block .block--notes .note .note__description {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: .1px;
+    color: var(--font__pri-clr);
+}
+
+.ticket__body_block .block--uploads {
+    margin-top: 26px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px
+}
+
+.ticket__body_block .block--uploads .icon-attach {
+    width: 16px;
+    height: 16px;
+    fill: var(--gray-3);
+    margin-right: 8px
+}
+
+.ticket__body_block .block--uploads a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.ticket__body_block .block--uploads a:hover {
+    color: var(--tertiary)
+}
+
+.ticket__body_block .block--suggested {
+    margin-top: 32px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    -ms-flex-align: baseline;
+    align-items: baseline
+}
+
+.ticket__body_block .block--suggested span {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+.ticket__body_block .block--suggested b {
+    font-weight: 700;
+    margin-bottom: 8px
+}
+
+.ticket__body_block .block--suggested a {
+    color: color-mix(in srgb, var(--primary) 70%, var(--tertiary) 30%);
+    transition: all var(--transition-speed) ease;
+}
+
+.ticket__body_block .block--suggested a:hover {
+    color: var(--tertiary)
+}
+
+.ticket__body_block .block--timer {
+    height: 48px;
+    background-color: var(--secondary);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ticket__body_block .block--timer.canned-options {
+    padding: 10px;
+    display: block;
+    height: inherit
+}
+
+.ticket__body_block .block--timer.canned-options .canned-header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--white-7);
+}
+
+.ticket__body_block .block--timer.canned-options .options {
+    display: flex;
+    justify-content: space-between
+}
+
+.ticket__body_block .block--timer.canned-options .options .radio-custom+.radio-custom {
+    margin-top: 3px
+}
+
+@media(min-width: 1340px) {
+    .ticket__body_block .time-and-canned {
+        display: flex
+    }
+    .ticket__body_block .time-and-canned section+section {
+        margin-left: 5px
+    }
+    .ticket__body_block .time-and-canned .block--timer {
+        height: inherit
+    }
+}
+
+@media(max-width: 1399px) {
+    .ticket__body_block .time-and-canned .canned-options {
+        margin-top: 10px
+    }
+}
+
+.ticket__body_block .block--timer span {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--surface);
+}
+
+.ticket__body_block .block--timer b {
+    margin: 0 26px 0 8px;
+    font-weight: 700
+}
+
+.ticket__body_block .block--timer a {
+    width: 32px;
+    height: 32px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 8px
+}
+
+.ticket__body_block .block--timer a svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--surface);
+    transition: all var(--transition-speed) ease;
+}
+
+.ticket__body_block .block--timer a:hover svg {
+    fill: var(--gray-1);
+}
+
+.ticket__body_block .block--message {
+    margin-top: 16px;
+    border-radius: 2px;
+    border: none;
+    background-color: var(--surface);
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket__body_block .block--message textarea {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    background: var(--input-bg);
+    padding: 8px 12px;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.375;
+    letter-spacing: .1px;
+    resize: vertical;
+    transition: none;
+    border: 1px solid var(--secondary);
+    color: var(--input-clr);
+}
+
+.ticket__body_block .block--message textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--gray-2);
+    opacity: 1; /* Firefox */
+}
+
+.ticket__body_block .block--message textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--message textarea::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--message .placeholder {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    z-index: 0;
+    letter-spacing: .1px;
+    color: var(--gray-2);
+}
+
+.ticket__body_block .block--message .placeholder a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.ticket__body_block .block--message .placeholder a:hover {
+    color: var(--tertiary)
+}
+
+.ticket__body_block .block--attach-list {
+    margin-top: 16px
+}
+
+.ticket__body_block .block--attach-list div {
+    width: 284px;
+    height: 32px;
+    padding-left: 8px;
+    border-radius: 2px;
+    background-color: var(--white-2);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    position: relative;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 4px
+}
+
+.ticket__body_block .block--attach-list div i {
+    width: 32px;
+    height: 32px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.ticket__body_block .block--attach-list div i svg {
+    width: 7px;
+    height: 7px;
+    fill: var(--gray-3);
+}
+
+.ticket__body_block .block--attach-list div i:hover svg {
+    width: 7px;
+    height: 7px;
+    fill: var(--gray-2);
+}
+
+.ticket__body_block .block--checkboxs {
+    margin-top: 24px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid var(--white-7)
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom {
+    margin-bottom: 16px;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    margin-right: 40px
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom .dropdown-select {
+    margin-left: 6px
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom .dropdown-select>span, .ticket__body_block .block--checkboxs .checkbox-custom .dropdown-select li {
+    color: var(--primary);
+    transition: all var(--transition-speed) ease;
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom .dropdown-select svg {
+    fill: var(--gray-2)
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom label {
+    color: var(--black-1);
+    transition: all var(--transition-speed) ease;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom input[type="checkbox"]:checked+label {
+    color: var(--black-1);
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom input[type="checkbox"]:checked+label::before {
+    border-color: var(--primary)
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom input[type="checkbox"]:checked+label svg {
+    fill: var(--primary)
+}
+
+.ticket__body_block .block--checkboxs .checkbox-custom.checked .dropdown-select>span, .ticket__body_block .block--checkboxs .checkbox-custom.checked .dropdown-select li {
+    color: var(--primary)
+}
+
+.ticket__body_block .block--submit {
+    margin-top: 24px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.ticket__body_block .block--submit .btn {
+    margin-right: 24px
+}
+
+.ticket__body_block .block--submit .submit-us {
+    margin-left: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--secondary)
+}
+
+.ticket__body_block .block--submit .submit-us span {
+    margin-left: 6px;
+    color: var(--secondary)
+}
+
+.ticket__body_block .block--submit .submit-us .icon-chevron-down {
+    width: 8px;
+    height: 8px;
+    margin-left: 4px;
+    fill: var(--secondary)
+}
+
+.ticket__body_block .block--submit .submit-us .dropdown-list {
+    left: calc(100% + 8px);
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.ticket__replies {
+    margin: 0 0 12px
+}
+
+.ticket__replies .ticket__replies_link {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--secondary);
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 24px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease
+}
+
+.ticket__replies .ticket__replies_link:hover {
+    color: var(--tertiary)
+}
+
+.ticket__replies .ticket__replies_link:hover .icon-chevron-down {
+    fill: var(--tertiary)
+}
+
+.ticket__replies .ticket__replies_link b {
+    font-weight: 700;
+    margin-left: 6px
+}
+
+.ticket__replies .ticket__replies_link .icon-chevron-down {
+    margin-left: 8px;
+    width: 8px;
+    height: 8px;
+    fill: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.ticket__replies .ticket__replies_link.visible .icon-chevron-down {
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.ticket__replies .ticket__replies_list {
+    padding-top: 16px;
+    display: none
+}
+
+.ticket__params {
+    width: 320px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0
+}
+
+.ticket__params .params--bar {
+    height: 48px;
+    border-radius: 2px;
+    box-shadow: var(--shadow_med) rgba(38, 40, 42, 0.3);
+    background-color: var(--surface);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-left: 16px;
+}
+
+.ticket__params .params--bar a {
+    width: 48px;
+    height: 48px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-grow: 1;
+    color: var(--secondary);
+}
+
+.ticket__params .params--bar .modal__buttons a {
+    flex-grow: 0;
+}
+
+.ticket__params .params--bar a:hover {
+    color: var(--primary);
+}
+
+.ticket__params .params--bar a svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--secondary);
+    margin-right: 10px;
+}
+
+.ticket__params .params--bar a:hover svg {
+    fill: var(--primary)
+}
+
+.ticket__params .params--bar .dropdown {
+    width: 65px;
+    height: 48px;
+    box-sizing: content-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-left: 1px solid var(--white-7)
+}
+
+.ticket__params .params--bar .dropdown label {
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.ticket__params .params--bar .dropdown label svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--secondary);
+    transition: all var(--transition-speed) ease;
+    margin: 0;
+}
+
+.ticket__params .params--bar .dropdown:hover svg {
+    fill: var(--primary)
+}
+
+.ticket__params .params--bar .dropdown .dropdown-list li a {
+    -ms-flex-pack: start;
+    justify-content: flex-start
+}
+
+.ticket__params .params--bar .dropdown .dropdown-list li svg {
+    margin-right: 8px
+}
+
+.ticket__params .params--block {
+    border-radius: 2px;
+    box-shadow: var(--shadow_small) var(--shadow-1-30);
+    background-color: var(--surface);
+    margin-top: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.ticket__params .params--block.params {
+    padding: 25px 16px
+}
+
+.ticket__params .params--block.params .title {
+    width: 110px
+}
+
+.ticket__params .params--block.params .icon-label {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px
+}
+
+.ticket__params .params--block.params [data-value="low"] .icon-label {
+    fill: var(--gray-2)
+}
+
+.ticket__params .params--block.details .title, .ticket__params .params--block.contacts .title, .ticket__params .params--block.history .title {
+    width: 106px
+}
+
+.ticket__params .params--block .row {
+    display: -ms-flexbox;
+    display: flex;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    margin-bottom: 18px
+}
+
+.ticket__params .params--block form:last-child .row {
+    margin-bottom: 0
+}
+
+.ticket__params .params--block .row .title {
+    color: var(--primary);
+    color: var(--font__sec-clr);
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+/* To handle same animation on Customer dropdown, we have to treat it a bit differently as above:
+As changing width/height, might otherwise cause a weird flicker/width change of the whole dropdown which looks bad,
+so in this case we rather to it with a scale transform, so it doesn't affect dropdown widht
+*/
+.dropdown .dropdown-list > li.noclose svg.copied,
+.dropdown-select .dropdown-list > li.noclose svg.copied {
+    fill: var(--primary);
+    transform: scale(0.8);
+}
+.noclose svg.copied { /* TO handle same animation on Customer dropdown */
+    fill: var(--primary);
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.ticket__params .params--block h4 {
+    height: 48px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    margin: 0;
+    padding: 0 16px
+}
+
+.ticket__params .params--block h4 .icon-chevron-down {
+    width: 8px;
+    height: 8px;
+    fill: var(--gray-3)
+}
+
+.ticket__params .params--block .accordion-body {
+    padding: 16px
+}
+
+@media screen and (max-width: 899px) {
+    .main__content.tickets {
+        padding: 17px 12px 24px
+    }
+    .main__content.tickets table th:nth-child(3), .main__content.tickets table td:nth-child(3) {
+        border: none
+    }
+    .main__content.tickets table .subject a {
+        white-space: nowrap;
+        max-width: 112px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block
+    }
+    .main__content.tickets table tr.selected {
+        background-color: var(--white-7)
+    }
+}
+
+.main__content.tickets .table th:nth-child(2), .main__content.tickets .table td:nth-child(2) {
+    border: none
+}
+
+.main__content.tickets .table .customer-count {
+    background: var(--surface);
+    border: solid 1px var(--gray-2);
+    margin-left: 5px;
+    padding: 3px;
+    white-space: nowrap;
+}
+
+.main__content.tickets.actions .tickets__mobile_head [data-action="ticket-mobile-actions"] {
+    background-color: var(--white-2);
+}
+.main__content.tickets.actions table.ticket-list .table__first_th, .main__content.tickets.actions table.ticket-list .table__first_td {
+    display: table-cell
+}
+
+.main__content.tickets.actions table.ticket-list td:nth-child(3)::before {
+    display: none
+}
+
+.right-bar.filter-list {
+    overflow: auto
+}
+
+.right-bar.filter-list .filter-list__body {
+    width: 432px;
+    padding: 12px 24px 72px
+}
+
+.right-bar.filter-list .filter-list__head {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 12px
+}
+
+.right-bar.filter-list .filter-list__head .btn-full {
+    width: 116px
+}
+
+.right-bar.filter-list .filter-list__section {
+    margin-bottom: 16px
+}
+
+.right-bar.filter-list .filter-list__section .section--title {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 32px 0 24px;
+    margin-bottom: 12px;
+    background-color: var(--white-2);
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px
+}
+
+.right-bar.filter-list .filter-list__section .section--title span {
+    font-weight: 700
+}
+
+.right-bar.filter-list .filter-list__section .section--title a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.right-bar.filter-list .filter-list__section .section--title a:hover {
+    color: var(--tertiary)
+}
+
+.right-bar.filter-list .filter-list__section .checkbox-custom {
+    margin-bottom: 12px;
+    margin-left: 32px
+}
+
+.right-bar.filter-list .filter-list__section .filter--search {
+    margin-left: 16px
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group {
+    position: relative
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group .search-clear {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: calc(50% - 16px);
+    right: 12px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    transition: all var(--transition-speed) ease
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group .search-clear .icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--gray-3)
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group .search-clear:hover .icon {
+    fill: var(--primary)
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list {
+    max-height: 260px;
+    overflow: auto;
+    border: 1px solid var(--white-8);
+    border-top: none;
+    padding: 13px 0
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list .scroll-y {
+    width: 4px;
+    right: 0
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list .scroll-element_track {
+    background-color: transparent
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list .scroll-element_track, .right-bar.filter-list .filter-list__section .filter--search .search--list .scroll-bar, .right-bar.filter-list .filter-list__section .filter--search .search--list .scroll-element_size {
+    border-radius: 0
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list .checkbox-custom {
+    margin-left: 16px
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .search--list .checkbox-custom label {
+    box-sizing: border-box
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group {
+    position: relative;
+    margin-bottom: 0
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group .form-control {
+    padding-left: 40px;
+    border-radius: 0
+}
+
+.right-bar.filter-list .filter-list__section .filter--search .form-group .icon-search {
+    position: absolute;
+    top: 11px;
+    left: 12px;
+    font-size: 19.7px
+}
+
+.right-bar.filter-list .filter-switchers {
+    margin-top: 24px;
+    margin-bottom: 40px
+}
+
+.right-bar.filter-list .filter-switchers .form-switcher {
+    margin-bottom: 16px;
+    margin-left: 24px
+}
+
+.right-bar.filter-list .filter-switchers .form-switcher span {
+    transition: all var(--transition-speed) ease
+}
+
+.right-bar.filter-list .filter-switchers .form-switcher input[type="checkbox"]:checked+.switch-checkbox__bullet+span {
+    color: var(--primary)
+}
+
+@media screen and (max-width: 899px) {
+    .right-bar.filter-list .right-bar__body {
+        width: 100%;
+        padding: 72px 12px
+    }
+    .right-bar.filter-list .right-bar__body h4 {
+        font-size: 16px;
+        font-weight: 700;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.38;
+        letter-spacing: .1px;
+        color: var(--gray-7);
+        text-transform: initial
+    }
+    .right-bar.filter-list .filter-list__footer {
+        width: 100%
+    }
+    .right-bar.filter-list .filter-list__footer .btn {
+        height: 40px!important
+    }
+    .right-bar.filter-list .filter-list__head {
+        margin: 0;
+        padding: 0 12px;
+        height: 48px;
+        width: 100%;
+        box-shadow: var(--shadow_med) var(--shadow-1-10);
+        background-color: var(--surface);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1
+    }
+}
+
+.right-bar.ticket-create {
+    font-family: "Lato", Arial, sans-serif
+}
+
+.right-bar.ticket-create button[data-action="save"] {
+    display: none
+}
+
+.right-bar.ticket-create button[data-action="next"] {
+    margin-left: auto
+}
+
+.right-bar.ticket-create .step-item {
+    color: var(--gray-7)
+}
+
+.right-bar.ticket-create .step-item .param {
+    margin-bottom: 24px;
+    display: -ms-flexbox;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px
+}
+
+.right-bar.ticket-create .step-item .param>span {
+    display: inline-block;
+    width: 108px;
+    color: var(--gray-2)
+}
+
+.right-bar.ticket-create .right-bar__footer {
+    width: 584px;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.right-bar.ticket-create [data-step="1"] .right-bar__footer {
+    display: none
+}
+
+.right-bar.ticket-create [data-step="5"] .right-bar__footer [data-action="save"] {
+    display: -ms-flexbox;
+    display: flex
+}
+
+.right-bar.ticket-create .form-group {
+    margin-bottom: 24px;
+    width: 320px
+}
+
+.right-bar.ticket-create .step-item.step-2 .form-groups {
+    margin-bottom: 32px
+}
+
+.right-bar.ticket-create .step-item.step-2 .form-groups .form-group:last-child {
+    margin-bottom: 0
+}
+
+.right-bar.ticket-create .step-item.step-3 a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease
+}
+
+.right-bar.ticket-create .step-item.step-3 a:hover {
+    color: var(--tertiary)
+}
+
+.right-bar.ticket-create .step-item.step-3 .param>span {
+    width: auto;
+    margin-right: 8px
+}
+
+.right-bar.ticket-create .step-item.step-3 textarea {
+    height: 134px
+}
+
+.right-bar.ticket-create .step-item.step-4 .form-group {
+    margin-bottom: 32px
+}
+
+.right-bar.ticket-create .step-item.step-4 .blue-select {
+    margin-bottom: 32px
+}
+
+.right-bar.ticket-create .step-item.step-4 .param {
+    display: block
+}
+
+.right-bar.ticket-create .step-item.step-4 .param .checkbox-custom {
+    margin-top: 16px
+}
+
+.right-bar.ticket-create .step-item.step-4 .param h3 {
+    font-size: 16px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: .1px
+}
+
+.right-bar.ticket-create .step-item.step-5 .checkbox-custom {
+    margin-bottom: 12px
+}
+
+.right-bar.ticket-create .attach .block--attach {
+    margin-top: 0
+}
+
+.right-bar.ticket-create .attach .attach-tooltype {
+    margin-top: 8px
+}
+
+.right-bar.ticket-create .attach .attach-tooltype>span {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: italic;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: .1px;
+    color: var(--secondary);
+    margin-right: 4px
+}
+
+.right-bar.ticket-create .attach .tooltype ul li {
+    margin-bottom: 8px;
+    padding-left: 12px;
+    position: relative
+}
+
+.right-bar.ticket-create .attach .tooltype ul li:last-child {
+    margin-bottom: 0
+}
+
+.right-bar.ticket-create .attach .tooltype ul li::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    position: absolute;
+    top: 6px;
+    left: 0
+}
+
+.right-bar.ticket-create .cayrgory-list {
+    margin: 16px 0 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.right-bar.ticket-create .cayrgory-list [ripple] .ripple--container span {
+    opacity: 1;
+    background-color: rgba(141, 156, 183, 0.1)
+}
+
+.right-bar.ticket-create .cayrgory-list li {
+    width: 248px;
+    height: 48px;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    background-color: var(--surface);
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    padding: 0 16px;
+    color: var(--primary);
+    transition: all var(--transition-speed) ease;
+    cursor: pointer
+}
+
+.right-bar.ticket-create .cayrgory-list li:hover {
+    box-shadow: 0 8px 16px 0 var(--shadow-1-10);
+}
+
+.right-bar.ticket-create .cayrgory-list li svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px
+}
+
+@media screen and (max-width: 899px) {
+    .right-bar.ticket-create .right-bar__body {
+        padding-top: 48px
+    }
+    .right-bar.ticket-create .cayrgory-list li {
+        width: 100%
+    }
+    .right-bar.ticket-create .form-group {
+        width: 100%
+    }
+}
+
+.filter-list__action-bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 4px 24px 10px;
+    border-bottom: 1px solid var(--white-7)
+}
+
+.filter-list__actions {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.filter-list__actions .btn {
+    height: auto;
+    margin-left: 24px
+}
+
+.filter-list__actions .icon {
+    font-size: 16px;
+    fill: var(--gray-3)
+}
+
+.section__heading {
+    margin-bottom: 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--secondary)
+}
+
+.filter-list__footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 16px 24px;
+    margin: 0;
+    height: 72px;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 432px
+}
+
+.filter-list__footer::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--white-1)
+}
+
+.filter-list__footer .btn[data-action="filters-save-group"] {
+    width: 155px
+}
+
+.open {
+    color: var(--red-2) !important;
+    color: color-mix(in srgb, var(--red-2) 82%, var(--primary) 18%) !important; /* WCAG contrast improvement */
+}
+
+.waitingreply {
+    color: color-mix(in srgb, var(--yellow-1) 65%, var(--red-2) 35%) !important;
+    color: color-mix(in srgb, var(--yellow-1) 55%, var(--red-2) 45%) !important; /* WCAG contrast improvement */
+}
+
+.replied {
+    color: color-mix(in srgb, var(--tertiary) 85%, var(--primary) 15%) !important;
+    color: color-mix(in srgb, var(--tertiary) 60%, #00f 60%) !important; /* More vibrant, but a bit hardcoded variant */
+}
+
+.resolved {
+    color: color-mix(in srgb, var(--green-1) 55%, var(--primary) 45%) !important; /* WCAG contrast improvement */
+}
+
+.allbutresolved {
+    color: var(--black-1) !important
+}
+
+.inprogress {
+    color: color-mix(in srgb, var(--tertiary) 55%, var(--red-1) 45%) !important;
+    color: color-mix(in srgb, var(--tertiary) 52%, var(--red-1) 48%) !important; /* WCAG contrast improvement */
+}
+
+.onhold {
+    color: color-mix(in srgb, var(--red-1) 65%, var(--tertiary) 35%) !important;
+    color: color-mix(in srgb, var(--red-1) 68%, var(--tertiary) 32%) !important; /* WCAG contrast improvement */
+}
+
+.tickets__legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.tickets__legend .bulk-actions {
+    text-align: right
+}
+
+.tickets__legend .bulk-actions .btn-full {
+    display: inline-block;
+    min-width: 100px
+}
+
+.tickets__legend svg {
+    width: 20px
+}
+
+.show_tickets .search-option {
+    display: flex;
+    margin-bottom: 20px
+}
+
+.show_tickets .search-options label[for="duedate_specific"],
+.show_tickets .search-options label[for="duedate_range"] {
+    margin-right: 5px;
+}
+
+.show_tickets .search-name {
+    font-weight: 700;
+    margin-right: 10px;
+    width: 200px
+}
+
+.show_tickets .checkbox-group .row .checkbox-custom {
+    display: inline-flex;
+    min-width: 250px
+}
+
+.show_tickets .checkbox-custom, .show_tickets .radio-custom {
+    margin-top: 10px
+}
+
+.show_tickets #topSubmit, .show_tickets #topSubmit2, .show_tickets #bottomSubmit, .show_tickets #bottomSubmit2 {
+    margin-top: 20px
+}
+
+.show_tickets #topSubmit .btn, .show_tickets #topSubmit2 .btn, .show_tickets #bottomSubmit .btn, .show_tickets #bottomSubmit2 .btn {
+    width: auto;
+    margin-right: 10px;
+    height: 40px
+}
+
+.show_tickets .selectize-input {
+    margin-top: 0
+}
+
+.bg-critical {
+    background-color: var(--error-2) !important;
+    border-top: 1px solid var(--error);
+    border-top: 1px solid rgba(230, 67, 66, .5);
+    border-bottom: 1px solid var(--error);
+    border-bottom: 1px solid rgba(230, 67, 66, .5)
+}
+
+.table tbody tr.new.bg-critical td:first-child::before {
+    background-color: var(--error) !important
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ticket__body_block .block--checkboxs {
+        display: block
+    }
+}
+
+.inline-bottom {
+    display: inline-block;
+    vertical-align: bottom
+}
+
+@media screen and (max-width: 600px) {
+    .tickets__legend {
+        display: block
+    }
+    .tickets__legend .bulk-actions {
+        text-align: left;
+        margin-top: 10px
+    }
+    .main__content.reports .reports__range .reports__range_form .radio-list .radio-custom {
+        display: block
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .inline-bottom {
+        display: inline-block;
+    }
+}
+#modifytime .btn.btn-full, #modifyduedate .btn.btn-full {
+    min-width: 64px
+}
+.change_category {
+    height: auto;
+    font-size: 14px;
+    padding: .75em 1em;
+    margin: 4px 0;
+    text-decoration: none;
+    font-weight: 400
+}
+.note__link > a {
+    text-decoration: none;
+    color: var(--gray-2);
+    color: color-mix(in srgb, var(--gray-4) 75%, var(--secondary) 25%); /* WCAG contrast improvement */
+}
+
+.canned-options {
+    color: var(--white-1) !important;
+}
+
+.ticket__body_block .block--timer label {
+    color: Var(--surface) !important;
+}
+
+.ticket__body_block .block--timer .radio-custom [type='radio']:checked+label {
+    color: color-mix(in srgb, var(--warning-2) 60%, var(--yellow-2) 40%) !important
+}
+
+.custom-field-title {
+    color: var(--gray-4);
+}
+
+.note__attachments {
+    color: var(--gray-3);
+}
+
+.block--uploads {
+    color: var(--gray-3);
+}
+
+.auto-reload {
+    margin-left: 10px;
+    margin-bottom: 16px;
+}
+
+.dot {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.bg-open {
+    background-color: color-mix(in srgb, var(--red-2) 90%, var(--error-3) 10%) !important
+}
+
+.bg-waitingreply {
+    background-color: color-mix(in srgb, var(--yellow-1) 62%, var(--red-2) 38%) !important
+}
+
+.bg-replied {
+    background-color: color-mix(in srgb, var(--tertiary) 75%, var(--primary) 25%) !important
+}
+
+.bg-resolved {
+    background-color: color-mix(in srgb, var(--green-1) 50%, var(--primary) 50%) !important
+}
+
+.bg-inprogress {
+    background-color: color-mix(in srgb, var(--tertiary) 55%, var(--red-1) 45%) !important
+}
+
+.bg-onhold {
+    background-color: color-mix(in srgb, var(--red-1) 62%, var(--tertiary) 38%) !important
+}
+
+.pending-approval {
+    background-color: color-mix(in srgb, var(--warning-2) 85%, var(--white-1) 15%) !important
+}
+.tickets__mobile_head .btn {
+    transition: all var(--transition-time-pri) ease;
+}
+
+/* START Misc ticket layout corrections for the columns to expand more nicely and consume 100% of width properly in all cases */
+.main__content.ticket {
+    /* as it's children no longer have fixed widths, (for better responsive layout), we have to put it to this parent, so that the content doesn't get too wide */
+    /*max-width: 1200px; <- now unnecessary, as it's limited by a max width setting! */
+    margin: 0 auto; /* auto margin of auto, essentially aligns it centrally within its container, if the screen is wider */
+    /* NOTE: unfortunately marign 0 auto, causes the main contaienr to NOT extend to full available width, if ticket width is set to be auto/extend.
+    But without it, it's hard to detect when params column should wrap to new row and extend full width */
+
+    padding: 23px 16px 50px 16px; /* less right padding needed, compensated with gap of 16px to separate the two columns */
+    gap: 24px;
+    flex-wrap: wrap; /* wrap, to force the second column below, if there's no longer enough space for it */
+}
+.main__content.ticket .ticket__body {
+    width: auto;
+    flex: 50 1 0; /* just a massive flex-grow, to ensure that this column always takes the rest of available flex width,
+    as we want the 2nd column to be max 320px at all times, but still allow it to expand to full width if it gets forced into it's own row */
+    margin-right: 0; /* no longer needed, handled by parent's gap */
+}
+/* make ticket params a bit wider, to be able to fit more language texts inside*/
+.ticket__params {
+    width: 330px;
+}
+.main__content.ticket .ticket__params {
+    /* don't allow it to shrink below 320px, this will help force it to automatically go into a new row
+    flex-grow of 0 allows it to scale up to full width automatically if forced into a new row
+    */
+    flex: 1 0 330px;
+}
+/* END Misc ticket layout corrections */
+.ticket__body_block {
+    padding: 15px 30px 15px;
+}
+.ticket__body_block .block--head .contact.grid .cc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 0;
+}
+.ticket__body_block .block--head .contact.grid .requester-header {
+    min-width: max-content;
+}
+.ticket__body_block .block--head .contact.grid .cc-header {
+    min-width: max-content;
+}
+.main__content.ticket .ticket__body_block .block--submit {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px 20px;
+}
+.ticket__body_block .block--submit .btn {
+    margin-right: 0;
+}
+.main__content.ticket .ticket__body_block input[name="save_reply"] {
+    margin-right: auto;
+}
+#submit-as-div.dropdown-select {
+    border: none;
+    margin-left: 0;
+}
+#submit-as-div.dropdown-select .label {
+    padding: 0 !important;
+    border: 0;
+}
+#submit-as-div.dropdown-select:hover .label span {
+    transition: all var(--transition-time-pri) ease;
+    background: var(--secondary);
+    color: var(--surface);
+    fill: var(--surface);
+}
+.ticket__body_block .block--head .contact .dropdown.customer {
+    box-shadow: none;
+    border-radius: 3px; /* required due to hover background, as label has box shadow and is rounded a bit */
+}
+.ticket__body_block .block--head .contact .dropdown.customer .label,
+.ticket__body_block .block--head .contact .dropdown.customer label {
+    min-height: 2em !important; /* unfortunately !important necessary to easily overwrite some broader selectors */
+    padding: 0 12px 0 12px !important; /* exception to make it narrower, as label no longer had 5px extra padding in original design */
+    border: none;
+    box-shadow: var(--shadow_dropdown_label) var(--white-3), var(--shadow_dropdown_label_invert) var(--white-3);
+}
+.ticket__body_block .block--head .contact .dropdown.customer:hover .label,
+.ticket__body_block .block--head .contact .dropdown.customer:hover label {
+    box-shadow: var(--shadow_dropdown_label) color-mix(in srgb, var(--secondary) 75%, var(--primary) 25%),
+        var(--shadow_dropdown_label_invert) color-mix(in srgb, var(--secondary) 75%, var(--primary) 25%);
+}
+.main__content.ticket .ticket__params .dropdown-select {
+    border-radius: 3px; /* required due to hover background, as label has box shadow and is rounded a bit */
+}
+.main__content.ticket .ticket__params .dropdown-select .label,
+.main__content.ticket .ticket__params .dropdown-select label {
+    min-height: 2em !important; /* unfortunately !important necessary to easily overwrite some broader selectors */
+    padding: 0 12px 0 12px !important; /* exception to make it narrower, as label no longer had 5px extra padding in original design */
+    border: none;
+    box-shadow: var(--shadow_dropdown_label) var(--white-3), var(--shadow_dropdown_label_invert) var(--white-3);
+}
+.checkbox-custom .dropdown-select:not(.right) .label,
+.checkbox-custom .dropdown-select:not(.right) label {
+    min-height: 2em !important; /* unfortunately !important necessary to easily overwrite some broader selectors */
+}
+.main__content.ticket .ticket__params .dropdown-select:hover .label,
+.main__content.ticket .ticket__params .dropdown-select:hover label {
+    box-shadow: var(--shadow_dropdown_label) color-mix(in srgb, var(--secondary) 75%, var(--primary) 25%),
+        var(--shadow_dropdown_label_invert) color-mix(in srgb, var(--secondary) 75%, var(--primary) 25%);
+}
+.ticket__body_block .block--head .contact .dropdown .dropdown-list li:not(.noclose):hover a {
+    color: var(--surface);
+}
+.ticket__body_block .block--head .contact time {
+    margin-left: 2px;
+}
+.ticket__body_block .block--head .contact .requester time {
+    margin-left: 0;
+}
+.ticket__body_block .block--checkboxs {
+    gap: 10%;
+}
+.ticket__body_block .block--checkboxs .checkbox-custom {
+    /* align the checkboxes into 2 columns, and allow enough space for a bit bigger texts, but if too long, force it into next row */
+    flex-basis: 43%;
+    margin-right: 0;
+    min-width: 35ch;
+}
+.attachments {
+    margin-top: 15px;
+}
+.ticket__body_block .time-and-canned .block--timer {
+    padding: 10px;
+}
+.ticket__body_block .time-and-canned .canned-options {
+    margin-top: 0 !important; /* to override a weird responsive change -> should be at 1340, so it's same media query condition as the parent */
+}
+@media (max-width: 1340px) {
+    .ticket__body_block .time-and-canned .canned-options {
+        margin-top: 10px !important;
+    }
+}
+.ticket__body_block .time-and-canned .canned-options .options {
+    flex-wrap: wrap;
+}
+.ticket__body_block .time-and-canned .canned-options .options > div {
+    flex: 1 0 175px;
+    max-width: 100%;
+}
+.ticket__body_block .time-and-canned .canned-options .form-group {
+    width: 50%;
+    margin-bottom: 0;
+}
+.ticket__body_block .time-and-canned .canned-options .form-group label {
+    text-align: right;
+}
+.ticket__body_block .time-and-canned .canned-options .form-group .selectize-control {
+    justify-content: right;
+}
+.ticket__body_block .time-and-canned .canned-options .form-group .selectize-control .selectize-input{
+    width: 100% !important;
+}
+.custom-field-title {
+    line-height: 1.8;
+}
+
+.removable-list {
+    /* Currently deprecated, but leaving heref or future reference, if it'll become a more generalized component. */
+}
+.removable-list-item {
+    margin: 2px 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 14px;
+    background-color: var(--surface);
+    transition: all 250ms ease;
+    color: var(--gray-4);
+
+    border-radius: 3px;
+    /*color: var(--primary);*/ /* Uncomment this, if you prefer the collaborator colors to be darker. */
+    box-shadow: var(--shadow_dropdown_label) var(--white-3), var(--shadow_dropdown_label_invert) var(--white-3);
+    border: none;
+    padding: 0 9px 0 12px !important;
+
+    line-height: 1.2;
+    min-height: 2em;
+}
+.removable-list-item > span {
+    width: 100%;
+}
+.removable-list-item .close {
+    display: -ms-flexbox;
+    display: flex;
+    width: 16px;
+    height: 16px;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 5px;
+    cursor: pointer;
+    opacity: 1;
+}
+.removable-list-item .close .icon {
+    width: 8px;
+    height: 8px;
+    fill: var(--primary);
+}
+.removable-list-item .close:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+.dropdown-fit-full-width {
+    display: flex;
+    width: 100% !important;
+}
+.dropdown-fit-full-width .label {
+    display: flex;
+    flex: 1;
+}
+.dropdown-fit-full-width .label > span {
+    flex: 1;
+}
+/* START some attempts for new customer layout - WIP, not final, might require layout changes */
+#submit-ticket .form-group > label > a {
+    margin-left: 5px;
+}
+/* END some attempts for new customer layout - WIP, not final, might require layout changes */
+
+@media (max-width: 640px) {
+    .ticket__body_block .block--head .contact.grid {
+        width: 100%;
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: 8px;
+        align-items: start;
+    }
+    .ticket__body_block .block--head .contact.grid .dropdown.customer {
+        margin-left: 0;
+    }
+    .contact.grid .dropdown.customer > label {
+        white-space: normal;
+        overflow-wrap: anywhere;
+        text-align: start;
+    }
+    .contact.grid .requester-time {
+        display: block;
+        margin-top: 4px;
+    }
+    .ticket__body_block .block--head .contact.grid .cc {
+        column-gap: 8px;
+    }
+}
+
+
+.filters__listing .btn.is-bookmarks.is-selected {
+    border-width: 1px;
+    background-color: color-mix(in srgb, var(--green-1) 58%, var(--primary) 42%) !important;
+    color: var(--surface);
+}

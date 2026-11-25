@@ -1,0 +1,18 @@
+/*
+Put any general footer related CSS here.
+*/
+
+.footer {
+    padding: 10px 16px 16px;
+    font-size: 16px;
+}
+
+.footer a {
+    color: var(--footer__link-clr);
+}
+
+.page-admin-profile .footer p > br:last-child,
+.page-admin-password .footer p > br:last-child,
+.page-admin-login .footer p > br:last-child {
+    display: none;
+}

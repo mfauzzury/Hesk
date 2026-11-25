@@ -1,0 +1,683 @@
+/*
+    Official Hesk Midnight Ocean (dark theme)
+
+    Create your own theme by adjusting the main theme variables.
+    TIPS:
+        1) Midnight Ocean is the perfect starting base for creating any "dark" theme, as it requires no additional CSS adjustments, besides just changing colors.
+            I.e. Things like inverted icon colors, or lighter texts etc.
+        2) Instead of adjusting the existing theme files, please simply create a copy of this file, and renamed it to your new theme.
+            The theme will then automatically become available under Admin -> Settings -> General -> Customer Theme
+        3) Any theme can also have values overwritten in Admin Settings -> Look & Feel,
+        so if what you need is just some changes that are support by the existing theme colors, we suggest using that.
+
+        4) USAGE:
+        - By adjusting --primary, --secondary and --tertiary, most of other colors will be adjusted
+          programmatically based on these.
+        - Programmatic adjustments require support of the css function color-mix().
+          This is currently supported for roughly 93% browser users (growing yearly).
+          For the rest, there are fallbacks, but they might "not look as good", but keep things functional.
+        - For the active theme, a "theme_{theme_file_name}" class will be added to the HTML element.
+          This means you can easily override styling of any elements, by overriding the default CSS selector with a stronger specifier.
+          For example, say you wanted to override styling of the ".btn-full" selector only for this theme, you could do so by defining this below in this file:
+          .theme_midnight_ocean .btn-full {
+            padding: 50px;
+          }
+*/
+
+/*
+This first :root section is for setting any values of the main theme variables found in the 0_00_default_theme_vars.css file.
+*/
+:root {
+    color-scheme: dark; /* For styling default input colors, where possible */
+
+    --primary: #2f75c1;         /* dark theme - slightly lighter or more saturated */
+    --tertiary: #4ab8f2;
+    --surface: #1a1d21;                 /* replaces white for containers */
+    --main-background: #0f1113;         /* replaces light gray bg */
+    --font__pri-clr: #ffffff;           /* not primary, just main readable text */
+    --font__sec-clr: var(--surface);           /* not primary, just main readable text */
+    --font__sec-clr: #2a2a2a;           /* not primary, just main readable text */
+    --font__sec-clr: var(--gray-1);           /* not primary, just main readable text */
+
+    --main-background: #0f1113;
+    --foreground: #ffffff;
+    --input-bg: #2a2a2a;
+    --input-clr: #f0f0f0;
+
+    --radio__bg: var(--surface);
+    --radio__fill-clr: var(--white-1);
+    --radio__hover-bg: var(--primary);
+
+    --shadow-1: rgba(0,0,0,0.5);
+
+    --notification__clr: #2a2a2a;
+    --notification__clr: var(--foreground);
+
+    --header_logo__clr: hsla(var(--white--hsl), 0.7); /* WCAG contrast improvement */
+    --header_nav__clr: #b3b3b3;
+    --header_nav__clr: var(--font__pri-clr);
+    --header_nav__hover_clr: var(--surface);
+    --header_profile__user-avatar-bg: var(--tertiary);
+
+    --link__pri-hover-clr: var(--surface);
+    --link__pri-hover-clr: var(--font__sec-clr);
+    --link__sec-hover-clr: #a1deff;
+
+    --btn__clr-pri: var(--font__pri-clr);
+
+    --article_preview__hover-clr: var(--font__pri-clr);
+    --article_preview_suggestion_clr: var(--font__pri-clr);
+
+    --dropdown__clr: var(--font__pri-clr);
+
+    --search__clr: var(--font__pri-clr);
+    --search__bg: var(--main-background);
+
+    --shadow-1-hsla: 210, 90%, 90%;
+
+    --shadow_smaller: 0 1px 2px 0;
+    --shadow_smaller_invert: 0 -1px 2px 0;
+    --shadow_small: 0 1px 2px 0;
+    --shadow_med: 0 2px 4px 0;
+    --shadow_blur-only: 0 0 5px 0;
+
+    --shadow_dropdown_label: inset 1px 1px 1px;
+    --shadow_dropdown_label_invert:  inset -1px -1px 1px;
+
+    --table_row__bg: color-mix(in srgb, var(--primary) 23%, var(--surface));
+    --table_row__bg-even: color-mix(in srgb, var(--tertiary) 1%, var(--surface));
+    --table_row__bg-hover: color-mix(in srgb, var(--surface) 90%, var(--primary));
+
+    --navlink__clr: var(--font__sec-clr);
+    --navlink__hover-bg: color-mix(in srgb, var(--surface) 95%, var(--foreground));
+    --header_profile__clr: var(--font__pri-clr);
+
+    --preview__hover-bg: color-mix(in srgb, var(--surface) 98%, var(--foreground));
+    --suggest_preview__clr: var(--font__sec-clr);
+    --suggest_preview__hover-bg: var(--preview__hover-bg);
+
+    --ticket_response__bg: var(--ticket_body__bg);
+
+    --datepicker__clr: var(--tertiary);
+
+    --success: var(--green-1);
+    --success-2: #53c3a1;
+    --success-2: var(--surface);
+    --error: var(--red-1);
+    --error-2: #c57979;
+    --error-2: var(--surface);
+    --warning: var(--yellow-1);
+    --warning-2: #c5c574;
+    --warning-2: var(--surface);
+    --info: #4ab8f2;
+    --info-2: #539cc8;
+    --info-2: var(--surface);
+    --info-3: #3a3a3a;
+
+    --link__pri-clr: #4ab8f2;
+    --breadcrumbs__a-clr: var(--link__pri-clr);
+    --breadcrumbs__a-hover-clr: var(--link__sec-hover-clr);
+    --preview__title-clr: var(--link__pri-clr);
+    --navlink__title-clr: var(--link__pri-clr);
+    --search__icon-fill: var(--link__pri-clr);
+}
+
+/* ADDITIONAL OVERWRITES BELOW - CSS helper vars, and general selector overwrites:
+(needed for specifically desired themes, which are currently not part of admin variables.
+They ALL require !important; to properly override followup loaded CSS!
+*/
+:root {
+    /* make the border buttons similar as full, but make them dark and white text to stand otu less */
+    --btn_blue_border__border-clr: var(--btn_full_border-clr) !important;
+    --btn_blue_border__clr: var(--btn_full_clr) !important;
+    --btn_blue_border__bg: var(--main-background) !important;
+    --btn_blue_border__hover_bg: var(--btn_full__hover_bg) !important;
+    --btn_blue_border__hover_clr: var(--white-1) !important;
+    --datepicker_cell__selected-clr: var(--white-1) !important;
+    --datepicker_day_name-clr: var(--white-9) !important;
+    --datepicker_nav__clr: var(--tertiary) !important;
+    --datepicker_nav__i-clr: var(--tertiary) !important;
+    --datepicker_cell_other__clr: var(--white-9) !important;
+
+
+
+    --btn_full__disabled_border-clr: var(--gray-5) !important;
+    --btn_full__disabled_bg: var(--gray-6) !important;
+    --btn_full__disabled_clr: var(--gray-5) !important;
+
+    --dropdown_option__active-clr: var(--font__pri-clr) !important;
+    --dropdown_input_read_write__nofocus-hover-clr: var(--font__pri-clr) !important;
+    --dropdown_label__hover-clr: var(--font__pri-clr) !important;
+    --dropdown_list_item__hover_clr: var(--font__pri-clr) !important;
+    --dropdown_input__hover-clr: var(--font__pri-clr) !important;
+    --dropdown_list_item_link__hover-clr: var(--white-1) !important;
+    --dropdown_list_item_icon__hover_fill: var(--white-1) !important;
+
+    --navlink_icon_hover__bg: var(--primary) !important;
+    --navlink_icon_hover__clr: var(--white-1) !important;
+}
+/* Exception, as we have to make it visible against dark background in this case! */
+.theme_midnight_ocean .selectize-control .selectize-input::after {
+    transition: all var(--transition-time-sec) ease;
+    color: var(--dropdown_input__hover-after-clr);
+    fill: var(--dropdown_input__hover-after-fill);
+    filter: brightness(0%) invert(100%);
+    opacity: 1 !important;
+}
+.theme_midnight_ocean .selectize-control .selectize-input ::placeholder {
+    color: var(--gray-2) !important;
+}
+.theme_midnight_ocean .selectize-control .selectize-input:hover:not(:focus-visible) ::placeholder {
+    color: var(--white-6) !important;
+}
+.theme_midnight_ocean .selectize-control .add-entry-option:hover {
+    color: var(--white-6) !important;
+}
+.theme_midnight_ocean .selectize-control .selectize-dropdown {
+    box-shadow: var(--shadow_small) color-mix(in srgb, var(--white-7) 20%, transparent) !important;
+}
+.theme_midnight_ocean .dropdown,
+.theme_midnight_ocean .dropdown-select {
+    background: var(--dropdown__bg) !important;
+}
+/*
+.theme_midnight_ocean .header .header__nav .profile__user .profile__menu .profile--logout a {
+    color: var(--btn_full_clr);
+}
+ */
+.theme_midnight_ocean .header .icon {
+    fill: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .link {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean a:hover,
+.theme_midnight_ocean .link:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .btn-full:hover {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .notification.green p:first-child {
+    color: var(--success);
+}
+.theme_midnight_ocean .notification.red p:first-child {
+    color: var(--error);
+}
+.theme_midnight_ocean .notification.orange p:first-child {
+    color: var(--warning);
+}
+.theme_midnight_ocean .notification.blue p:first-child {
+    color: var(--info);
+}
+.theme_midnight_ocean .alert {
+    background: color-mix(in srgb, var(--surface) 90%, var(--secondary)) !important;
+}
+.theme_midnight_ocean .btn--blue-border:hover {
+    color: var(--btn_blue_border__hover_clr) !important;
+}
+.theme_midnight_ocean .btn.cancel,
+.theme_midnight_ocean .btn-border {
+    background: var(--btn_blue_border__bg) !important;
+    color: var(--btn_blue_border__clr) !important;
+}
+.theme_midnight_ocean .btn.cancel:hover,
+.theme_midnight_ocean .btn-border:hover {
+    background: var(--btn_blue_border__hover_bg) !important;
+    color: var(--btn_blue_border__hover_clr) !important;
+}
+.theme_midnight_ocean .btn--blue-border .icon {
+    fill: var(--btn_blue_border__clr) !important;
+}
+.theme_midnight_ocean .btn-full.disabled,
+.theme_midnight_ocean .btn-full:disabled {
+    color: var(--btn_full__disabled_clr) !important;
+    opacity: 0.5 !important;
+}
+.theme_midnight_ocean .browser-default code {
+    color: black !important;
+}
+.theme_midnight_ocean .radio-custom [type="radio"] + label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:checked + label::after,
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:not(:checked) + label::after {
+    filter: invert(100%) brightness(200%);
+}
+.theme_midnight_ocean .radio-custom [type="radio"]:not(:checked) + label,
+.theme_midnight_ocean .radio-custom [type="radio"]:checked + label {
+    color: var(--font__sec-clr) !important;
+}
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:not(:checked) + label,
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:checked + label {
+    color: var(--font__sec-clr) !important;
+}
+.theme_midnight_ocean .modal {
+    background: hsla(var(--black--hsl), 0.7) !important;
+}
+.theme_midnight_ocean .modal a.close-modal {
+    filter: invert(100%);
+    border-radius: 50%;
+}
+.theme_midnight_ocean .modal a.close-modal:hover {
+    filter: none !important;
+    border: 1px solid white;
+}
+.theme_midnight_ocean .modal .modal__body {
+    box-shadow: var(--shadow_med) var(--shadow-1-10) !important;
+}
+.theme_midnight_ocean .table thead .sort {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .table-wrap .table thead a {
+    color: var(--foreground) !important;
+}
+.theme_midnight_ocean .table-wrap .table thead a:hover span {
+    color: var(--surface) !important;
+}
+.theme_midnight_ocean .table thead {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .table thead th .handle {
+    filter: invert(100%);
+}
+.theme_midnight_ocean .table thead th a:hover .handle{
+    filter: none;
+}
+.theme_midnight_ocean .table tbody td .link {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .table tbody td .link:hover {
+    color: var(--link__pri-hover-clr) !important;
+}
+.theme_midnight_ocean .table tbody .icon-assign-plus {
+    fill: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .contact b {
+    color: var(--primary) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .contact b {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block.response {
+    border: 1px solid var(--success) !important;
+}
+.theme_midnight_ocean .ticket__body_block.response .block--head .contact b {
+    color: var(--success) !important;
+}
+.theme_midnight_ocean .ticket__body_block h1 {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .form-group .form-control__error {
+    background: none !important;
+}
+.theme_midnight_ocean .main__content.settings .settings__form .form-group label span {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.settings .settings__status .settings__status_list .list--name {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .btn-transparent {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:not(:checked) + label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .filters__listing .btn.is-selected {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .main-menu {
+    color: hsla(var(--white--hsl), 0.7) !important;
+    background: color-mix(var(--main-background) 95%, white) !important;
+}
+.theme_midnight_ocean .main-menu .listitem.current {
+    background: var(--primary) !important;
+    background: color-mix(in srgb, var(--primary) 50%, var(--black-1)) !important; /* VER 2 */
+}
+.theme_midnight_ocean .main-menu .navbar__list li.current .submenu__list li.current {
+    background: var(--primary) !important;
+    background: color-mix(in srgb, var(--primary) 50%, var(--black-1)) !important; /* VER 2 */
+}
+.theme_midnight_ocean .main-menu .submenu__listitem::before {
+    background: var(--main-background) !important;
+    background: color-mix(in srgb, var(--primary) 50%, var(--black-1)) !important;
+    background: color-mix(in srgb, var(--primary) 25%, var(--black-1)) !important; /* VER 2 */
+}
+.theme_midnight_ocean .main-menu .listitem a {
+    color: inherit !important;
+}
+.theme_midnight_ocean .main-menu .submenu__listitem:hover::before {
+    background-color: hsla(var(--white--hsl),.1) !important;
+    background: color-mix(in srgb, var(--primary) 60%, var(--black-1)) !important;
+}
+.theme_midnight_ocean .main-menu.is-toggled .listitem__menu {
+    /*background: color-mix(in srgb, var(--primary) 60%, var(--black-1)) !important;*/
+}
+.theme_midnight_ocean .main-menu.is-toggled .listitem__menu .submenu__listitem:hover {
+    background: color-mix(in srgb, var(--primary) 60%, var(--black-1)) !important;
+}
+@media screen and (min-width: 900px) {
+    .theme_midnight_ocean .main-menu.is-toggled .listitem__menu {
+        background: color-mix(in srgb, var(--primary) 60%, var(--black-1)) !important;
+    }
+}
+.theme_midnight_ocean .navbar__logo:hover {
+    color: hsla(var(--white--hsl), 0.96) !important;
+}
+.theme_midnight_ocean .navbar__toggler .icon:hover {
+    color: hsla(var(--white--hsl), 0.96) !important;
+}
+.theme_midnight_ocean .navbar__list li.current .listitem__menu > a {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__list li.current .listitem__icon {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__list li.current .submenu__list li.current {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__list li.current::after {
+    border-color: transparent transparent var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__list li.is-active:hover::after,
+.theme_midnight_ocean .navbar__list li.submenu-is-opened:hover::after {
+    border-color: transparent transparent var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__list li.is-active:hover .listitem__icon,
+.theme_midnight_ocean .navbar__list li.submenu-is-opened:hover .listitem__icon {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .navbar__toggler .icon {
+    color: hsla(var(--white--hsl), 0.7) !important;
+}
+.theme_midnight_ocean .ticket__body .ticket__body_block .block--timer label {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--timer a svg {
+    fill: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--timer a:hover svg {
+    fill: var(--font__sec-clr) !important;
+}
+.theme_midnight_ocean .note__link > a {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .note__link > a .icon {
+    fill: var(--tertiary) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar,
+.theme_midnight_ocean .ticket__params .params--bar a:not(.btn) {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar a svg {
+    fill: var(--tertiary) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar .dropdown label svg {
+    fill: var(--tertiary) !important;
+}
+.theme_midnight_ocean .note__link > a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .note__link > a:hover .icon {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar a:not(.btn):hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar a:hover svg {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__params .params--bar .dropdown label:hover svg {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .more label:hover > span {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .more a:hover svg,
+.theme_midnight_ocean .ticket__body_block .block--head .more label:hover > svg {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .more .dropdown-list a {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .main__content.templates .ticket__list,
+.theme_midnight_ocean .main__content.templates .response__list {
+    color: var(--secondary) !important;
+}
+.theme_midnight_ocean .main__content.knowledge .knowledge__tabs .knowledge__list .item--list li h5 a {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge .knowledge__tabs .knowledge__list .item--list li h5 a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .notification-bar.white .notification--text {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.article .form-group.article__keywords label b {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.article .article__body .article__back a {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.article .article__body .article__back .icon-back {
+    fill: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .radio-list .radio-custom [type="radio"]:checked + label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .right-bar {
+    background: hsla(var(--black--hsl), 0.8) !important;
+}
+.theme_midnight_ocean .param.calendar .calendar--value .close svg {
+    fill: var(--tertiary) !important;
+}
+.theme_midnight_ocean .param.calendar .calendar--value .close {
+    opacity: 1 !important;
+}
+.theme_midnight_ocean .main__content.tools .table-wrapper.module-escalate table .buttons p a:hover svg,
+.theme_midnight_ocean .main__content.tools .table-wrapper.module-recurring-tickets table .buttons p a:hover svg,
+.theme_midnight_ocean .main__content.tools .table-wrapper.service-message table .buttons p a:hover svg {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean #maincontent .more-contrast {
+    color: var(--font__sec-clr) !important;
+}
+.theme_midnight_ocean #maincontent .radio-custom [type="radio"]:checked + label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .main__content.tools .tools__add-mail .mail--examples {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean #rruleHolder #dates td:first-child {
+    color: var(--gray-1) !important;
+}
+.theme_midnight_ocean #rruleHolder #dates td.b {
+    color: var(--foreground) !important;
+}
+.theme_midnight_ocean .right-bar.tools-email-template-edit .param > span,
+.theme_midnight_ocean .right-bar.tools-email-template-edit .template--tags label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .main__content.settings .settings__form .form-group.list .input-list li a {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .header .profile__user.active {
+    background: inherit !important;
+}
+.theme_midnight_ocean .header .profile__user.active .user__ava {
+    background-color: var(--header_profile__user-avatar-bg) !important;
+    color: var(--surface) !important;
+}
+.theme_midnight_ocean .header .profile__user.active .user__name p span {
+    color: var(--header_profile__clr) !important;
+}
+.theme_midnight_ocean  .header .profile__user .profile__menu .profile--view .btn-border {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean  .header .profile__user .profile__menu .profile--view .btn-border:hover {
+    background-color: var(--secondary) !important;
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .header .profile__user .profile__menu .profile--logout a {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .header .icon {
+    fill: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .header .profile__user .profile__menu .profile--view .btn-border:hover {
+    background: var(--primary) !important;
+}
+.theme_midnight_ocean .notification .btn--blue-border {
+    background: var(--btn_full_bg) !important;
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .notification .btn--blue-border:hover {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .contact .dropdown .dropdown-list li a {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .ticket__body_block .block--head .contact .dropdown .dropdown-list li.noclose a:hover {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .custom-field-title {
+    color: var(--font__sec-clr) !important
+}
+.theme_midnight_ocean #submit-as-div .label span {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .param.calendar label {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.category .category__list {
+    background-color: unset !important;
+}
+.theme_midnight_ocean .main__content.knowledge.category .category__list .category__list_table table td.title a {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.category .category__list .category__list_table table td.title a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.category .category__list .category__list_table table td.actions a svg {
+    fill: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.category .category__list .category__list_table table td.actions a svg:hover {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .tooltype .tooltype__content {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.settings .dropdown-select .label {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .tooltype:hover .icon-info {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .notification > .icon {
+    fill: var(--secondary) !important;
+    cursor: pointer;
+}
+.theme_midnight_ocean .notification > .icon:hover {
+    fill: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .switch-checkbox a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .switch-checkbox a {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .switch-checkbox a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:not(:checked) + label,
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:checked + label {
+    -webkit-tap-highlight-color: transparent;
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .checkbox-custom [type="checkbox"]:not(:checked) + label {
+    color: var(--font__sec-clr) !important;
+}
+.theme_midnight_ocean .main__content.settings .settings__form .toggle-advanced-settings[data-expanded] span[data-type] svg {
+    fill: var(--white-1) !important;
+}
+.theme_midnight_ocean .browser-default a.btn--blue-border {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.knowledge.article .article__body .article__description {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .error-msg {
+    color: var(--error) !important;
+}
+.theme_midnight_ocean .pagination__item.is-current .pagination__link {
+    background-color: var(--white-1) !important;
+}
+.pagination__item:not(.is-current) .pagination__link {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean #maincontent .canned-options .radio-custom [type="radio"]:checked + label {
+    color: var(--white-1) !important;
+}
+.theme_midnight_ocean .canned-options .radio-custom [type="radio"]:not(:checked) + label {
+    color: var(--white-9) !important;
+}
+
+.theme_midnight_ocean .main__content.profile .profile__info .profile__info_list .info--mail a {
+    color: var(--link__pri-clr) !important;
+}
+
+.theme_midnight_ocean .main__content.profile .profile__info .profile__info_list .info--mail a:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .main__content.profile .profile__control a.profile-log-out {
+    color: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.profile .profile__control a.profile-log-out svg {
+    fill: var(--link__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.profile .profile__control a.profile-log-out:hover {
+    color: var(--link__sec-hover-clr) !important;
+}
+.theme_midnight_ocean .main__content.profile .profile__control a.profile-log-out:hover svg {
+    fill: var(--link__sec-hover-clr) !important;
+}
+
+.theme_midnight_ocean .main__content.knowledge .article__detalies .article__detalies_list li .descr a {
+    color: var(--link__sec-hover-clr) !important;
+}
+
+.theme_midnight_ocean .main__content.knowledge .article__detalies .article__detalies_list li .descr a:hover {
+    fill: var(--link__sec-hover-clr) !important;
+}
+
+.theme_midnight_ocean .main__content.templates .ticket__list,
+.theme_midnight_ocean .main__content.templates .response__list {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .main__content.emails .emails__head_tabs li.current {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .template-create .template-create__body .form .template--tags label {
+    color: var(--tertiary) !important;
+}
+.theme_midnight_ocean .select__title {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .badge {
+    color: var(--font__pri-clr) !important;
+}
+.theme_midnight_ocean .mfa-alt-icon > svg {
+    fill: var(--font__pri-clr) !important;
+}
+
+.theme_midnight_ocean .step-bar {
+    --white-7: color-mix(in srgb, var(--primary) 65%, var(--surface));
+    --gray-2: var(--font__sec-clr);
+    --gray-7: var(--font__sec-clr);
+}
+
+@media screen and (max-width: 899px) {
+    .theme_midnight_ocean .step-bar {
+        background-color: var(--table_row__bg);
+    }
+}

@@ -1,0 +1,436 @@
+/*
+Put any general input related CSS here.
+*/
+/* START general input elements */
+
+::-webkit-input-placeholder {
+    color: var(--gray-2);
+}
+::-moz-placeholder {
+    color: var(--gray-2);
+}
+:-ms-input-placeholder {
+    color: var(--gray-2);
+}
+:-moz-placeholder {
+    color: var(--gray-2);
+}
+::placeholder {
+    color: var(--gray-2);
+}
+
+input {
+    outline: none
+}
+
+input::-ms-clear {
+    display: none
+}
+/* END general input elements */
+
+/* START checkbox input elements */
+
+.checkbox-custom {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 16px
+}
+
+.checkbox-custom [type='checkbox']:checked, .checkbox-custom [type='checkbox']:not(:checked) {
+    position: absolute;
+    left: -9999px
+}
+
+.checkbox-custom [type='checkbox']+label {
+    transition: all var(--transition-speed) ease
+}
+
+.checkbox-custom [type='checkbox']:not(:checked)+label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: var(--secondary);
+}
+
+.checkbox-custom [type='checkbox']:checked+label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: var(--primary);
+}
+
+.checkbox-custom [type='checkbox']:checked+label:before, .checkbox-custom [type='checkbox']:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--checkbox__bg);
+    border: 1px solid var(--secondary);
+    /* color: #fff; */
+}
+
+.checkbox-custom [type='checkbox']:checked+label:after, .checkbox-custom [type='checkbox']:not(:checked)+label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all .2s ease;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='8' viewBox='0 0 11 8'%3E%3Cpath fill='%23002D73' fill-rule='evenodd' d='M9.043 0L3.246 5.128 1.623 3.692 0 5.128 3.246 8l7.42-6.564z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+}
+
+.checkbox-custom [type='checkbox']:not(:checked)+label:after {
+    opacity: 0;
+    -ms-transform: scale(0);
+    transform: scale(0)
+}
+
+.checkbox-custom [type='checkbox']:checked+label:after {
+    opacity: 1;
+    -ms-transform: scale(1);
+    transform: scale(1)
+}
+
+.checkbox-custom [type='checkbox']:disabled:checked+label:before, .checkbox-custom [type='checkbox']:disabled:not(:checked)+label:before {
+    border-color: var(--gray-1);
+    background-color: var(--white-3);
+}
+
+.checkbox-custom [type='checkbox']:disabled:checked+label {
+    pointer-events: none;
+}
+.checkbox-custom [type='checkbox']:disabled:checked+label:after {
+    background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='8' viewBox='0 0 11 8'%3E%3Cpath fill='%23999' fill-rule='evenodd' d='M9.043 0L3.246 5.128 1.623 3.692 0 5.128 3.246 8l7.42-6.564z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 1px 2px;
+}
+
+.invalid .checkbox-custom [type='checkbox']:not(:checked):required+label:before {
+    border-color: var(--error);
+}
+.checkbox-custom [type='checkbox']+label {
+    transition: all var(--transition-time-pri) ease;
+}
+@media (hover: hover) {
+    .checkbox-custom [type="checkbox"] + label:hover::before {
+        background: var(--checkbox__hover-bg);
+    }
+}
+/* END checkbox input elements */
+
+
+/* START radio input elements */
+
+.radio-custom {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 16px
+}
+
+.radio-custom [type='radio']:checked, .radio-custom [type='radio']:not(:checked) {
+    position: absolute;
+    left: -9999px
+}
+
+.radio-custom [type='radio']:checked+label, .radio-custom [type='radio']:not(:checked)+label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: var(--font__sec-clr);
+}
+
+.radio-custom [type='radio']:checked+label:before, .radio-custom [type='radio']:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: var(--radio__bg);
+    border-radius: 50%;
+    border: 1px solid var(--primary);
+}
+
+.radio-custom [type='radio']:checked+label:after, .radio-custom [type='radio']:not(:checked)+label:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: all .2s ease;
+    background-color: var(--radio__fill-clr);
+    border-radius: 50%;
+}
+
+.radio-custom [type='radio']:not(:checked)+label:after {
+    opacity: 0;
+    -ms-transform: scale(0);
+    transform: scale(0)
+}
+
+.radio-custom [type='radio']:checked+label:after {
+    opacity: 1;
+    -ms-transform: scale(1);
+    transform: scale(1)
+}
+
+.radio-custom [type='radio']:disabled:checked+label:before, .radio-custom [type='radio']:disabled:not(:checked)+label:before {
+    border-color: var(--gray-1);
+    background-color: var(--white-3);
+}
+
+.radio-custom [type='radio']:disabled:checked+label:after {
+    background: var(--gray-3); /* deprecation fallback */
+    background: color-mix(in srgb, var(--gray-3) 80%, var(--white-1));
+}
+
+.invalid .radio-custom [type='radio']:not(:checked):required+label:before {
+    border-color: var(--error);
+}
+.radio-custom [type='radio']:checked+label {
+    color: var(--primary) !important;
+}
+.radio-custom [type="radio"] + label:hover::before,
+.radio-custom [type="radio"] + label:hover::before {
+    background: var(--radio__hover-bg);
+}
+/* END radio input elements */
+
+
+/* START switch checkbox elements (TODO what is this, can it be simplified?) */
+
+.switch-checkbox {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.switch-checkbox input[type="checkbox"] {
+    display: none
+}
+
+.switch-checkbox .switch-checkbox__bullet {
+    width: 32px;
+    min-width: 32px;
+    height: 16px;
+    background-color: var(--gray-3);
+    border: 1px solid var(--gray-6);
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+}
+
+.switch-checkbox .switch-checkbox__bullet i {
+    display: block;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 1px 2px 0 hsla(var(--black--hsl), .16);
+    background-color: var(--white-1);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: initial;
+    transition: all var(--transition-speed) ease;
+}
+
+.switch-checkbox .switch-checkbox__bullet i svg {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    transition: all var(--transition-speed) ease
+}
+
+.switch-checkbox .switch-checkbox__bullet i svg.icon-tick {
+    opacity: 0
+}
+
+.switch-checkbox input[type="checkbox"]:checked+.switch-checkbox__bullet {
+    background-color: var(--secondary);
+    border-color: color-mix(in srgb, var(--primary) 70%, var(--black-1) 30%);
+
+}
+
+.switch-checkbox input[type="checkbox"]:checked+.switch-checkbox__bullet i {
+    left: 100%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%)
+}
+
+.switch-checkbox input[type="checkbox"]:checked+.switch-checkbox__bullet i .icon-close {
+    opacity: 0
+}
+
+.switch-checkbox input[type="checkbox"]:checked+.switch-checkbox__bullet i .icon-tick {
+    opacity: 1
+}
+
+.switch-checkbox span {
+    margin-left: 16px;
+    transition: all var(--transition-speed) ease;
+    line-height: 1.2
+}
+
+.switch-checkbox a {
+    margin-left: 16px;
+    transition: all var(--transition-speed) ease;
+    color: var(--secondary);
+    line-height: 1.2
+}
+
+.switch-checkbox a:hover {
+    color: var(--primary) !important;
+}
+
+.switch-checkbox__bullet .icon-close {
+    fill: var(--gray-4)
+}
+/* END switch checkbox elements */
+
+/* Contenteditable editor that visually replaces the textarea */
+.hesk-mention-editor {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    max-height: 400px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    line-height: 1.5;
+    color: var(--input-clr);
+    background: var(--input-bg);
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    outline: none;
+    cursor: text;
+}
+.hesk-mention-editor:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 2px var(--secondary); /* deprecation fallback */
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--secondary) 20%, transparent);
+}
+.hesk-mention-editor:empty::before {
+    content: attr(data-placeholder);
+    color: var(--gray-2);
+    pointer-events: none;
+}
+
+/* Live span shown while the user is typing a @mention query */
+.mention-in-progress {
+    display: inline;
+    background: var(--info-2);
+    color: var(--notification__clr);
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
+/* Pill chip rendered when a mention is selected */
+.mention-chip {
+    display: inline-block;
+    background: var(--surface);
+    color: var(--font__pri-clr);
+    border-radius: 50px;
+    padding: 1px 10px 2px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    cursor: default;
+    user-select: all;
+    -webkit-user-select: all;
+    white-space: nowrap;
+    border: 1px solid var(--link__pri-clr);
+    margin-bottom: 2px;
+}
+
+/* Suggestion dropdown */
+#mention-dropdown {
+    position: absolute;
+    background: var(--dropdown_list__bg);
+    border: 1px solid var(--dropdown_list__border-clr);
+    border-radius: 3px;
+    box-shadow: 0 4px 14px var(--shadow-1-10);
+    z-index: 99999;
+    max-height: 150px;
+    overflow-y: auto;
+    min-width: 220px;
+    padding: 4px 0;
+    margin: 0;
+    list-style: none;
+    display: none;
+}
+#mention-dropdown li {
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    white-space: nowrap;
+    color: var(--dropdown_option__clr);
+}
+
+#mention-dropdown .mention-user {
+    font-weight: 600;
+}
+#mention-dropdown .mention-name {
+    font-size: 12px;
+}
+
+#mention-dropdown li:hover,
+#mention-dropdown li.mention-active {
+    background: var(--dropdown_option__active-bg);
+    color: var(--dropdown_option__active-clr) !important;
+}
+/* Loading row shown while AJAX is in flight */
+#mention-dropdown .mention-loading {
+    color: var(--font__sec-clr);
+    font-size: 12px;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Spinning circle next to "Searching..." */
+.mention-spinner {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border: 2px solid var(--shadow-1-20);
+    border-top-color: var(--link__pri-clr);
+    border-radius: 50%;
+    animation: mention-spin 0.6s linear infinite;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+@keyframes mention-spin {
+    to { transform: rotate(360deg); }
+}

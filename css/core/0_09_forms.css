@@ -1,0 +1,510 @@
+/*
+Put any general forms related CSS here.
+*/
+
+textarea {
+    background: var(--input-bg);
+    border: 1px solid var(--secondary);
+    color: var(--input-clr);
+}
+.form {
+    font-size: 14px
+}
+
+.form .checkbox-custom {
+    padding: 0
+}
+
+.form textarea.form-control {
+    height: 155px;
+    resize: none;
+    font-family: "Lato", Arial, sans-serif
+}
+
+.form.invalid .error-message {
+    display: block
+}
+
+.form.invalid .form-control.isError {
+    border-color: var(--error);
+}
+
+.form__title {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.33
+}
+
+.input-group {
+    position: relative
+}
+
+.input-group-append--icon {
+    position: absolute;
+    right: 17px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    z-index: 3;
+    cursor: pointer
+}
+
+.input-group-append--icon:hover .icon {
+    fill: var(--secondary);
+}
+
+.input-group-append--icon .icon {
+    fill: var(--white-9);
+    font-size: 12px
+}
+
+.input-group-append--icon .icon-eye-close {
+    font-size: 12px
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 16px
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--font__pri-clr);
+}
+
+.isError > label {
+    color: var(--error);
+}
+
+.form-group .form-control__error {
+    display: none;
+    margin-top: 12px;
+    padding: 9px;
+    color: var(--error);
+    text-align: center;
+    background-color: color-mix(in srgb, var(--error) 5%, var(--white-1));
+}
+
+.form-group.error .form-control__error {
+    display: block
+}
+
+.form-group.error input {
+    border-color: var(--error);
+}
+
+.form input.form-control, .form textarea.form-control {
+    height: 40px;
+    width: 100%;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 2px;
+    border: solid 1px var(--secondary);
+    background-color: var(--input-bg);
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: .1px;
+    -webkit-appearance: none;
+    outline: none;
+    color: var(--input-clr);
+    transition: all var(--transition-speed) ease;
+}
+
+.form select.form-control {
+    width: 100%;
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 2px;
+    border: solid 1px var(--white-8);
+    background-color: var(--input-bg);
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: .1px;
+    -webkit-appearance: none;
+    outline: none;
+    color: var(--gray-7);
+    transition: all var(--transition-speed) ease;
+}
+
+.form input.form-control:-ms-input-placeholder, .form textarea.form-control:-ms-input-placeholder {
+    color: var(--gray-2);
+}
+
+.form input.form-control::placeholder, .form textarea.form-control::placeholder {
+    color: var(--gray-2);
+}
+
+.form input.form-control:hover, .form textarea.form-control:hover, .form select.form-control:hover {
+    border-color: var(--gray-2);
+}
+
+.form input.form-control:focus, .form textarea.form-control:focus, .form select.form-control:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: none;
+}
+.form input.form-control:focus:not(.jscolor), .form textarea.form-control:focus, .form select.form-control:focus {
+    color: var(--input-clr) !important;
+}
+
+.error-message {
+    display: none;
+    padding: 9px;
+    color: var(--error);
+    text-align: center;
+    background-color: color-mix(in srgb, var(--error) 5%, var(--white-1));
+}
+
+.invalid-feedback {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: .2rem;
+    font-size: 12px
+}
+
+.invalid .form-control {
+    border-color: var(--error);
+}
+
+.invalid .invalid-feedback {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    color: var(--error);
+}
+
+.form__submit {
+    margin-top: 24px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.form__submit.mfa {
+    flex-direction: column
+}
+
+.form__search {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 16px 0 32px;
+    position: relative;
+    background-color: var(--surface);
+    box-sizing: border-box
+}
+
+.form__search .search--type {
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--gray-2);
+    margin-right: 4px;
+    display: none;
+    text-transform: capitalize;
+    cursor: pointer
+}
+
+.form__search .form__search_type {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: var(--shadow_small) var(--shadow-1-10);
+    background-color: var(--surface);
+    padding: 9px 16px 24px;
+    z-index: 1;
+    display: none
+}
+
+.form__search .form__search_type h5 {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--gray-7);
+}
+
+.form__search .form__search_type .type--list {
+    margin: 8px -16px 0
+}
+
+.form__search .form__search_type .type--list li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--primary);
+    height: 40px;
+    transition: all var(--transition-speed) ease;
+    padding: 0 16px;
+    cursor: pointer
+}
+
+.form__search .form__search_type .type--list li:hover {
+    background-color: var(--white-2);
+}
+
+.form__search .form__search_type .type--list li:last-child {
+    margin-bottom: 0
+}
+
+.form__search .form__search_type .type--list li .icon {
+    margin-right: 8px;
+    fill: var(--gray-2);
+    transition: all var(--transition-speed) ease
+}
+
+.form__search .form__search_results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: var(--shadow_small) var(--shadow-1-10);
+    background-color: var(--surface);
+    padding: 8px 24px 0;
+    z-index: 1;
+    display: none
+}
+
+.form__search .form__search_results h5 {
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: .1px;
+    color: var(--secondary);
+}
+
+.form__search .form__search_results .results--list {
+    margin: 0 -24px
+}
+
+.form__search .form__search_results .results--list li {
+    height: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--gray-7);
+    transition: all var(--transition-speed) ease;
+    padding: 0 24px
+}
+
+.form__search .form__search_results .results--list li> :last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0
+}
+
+.form__search .form__search_results .results--list li:hover {
+    background-color: var(--white-2);
+}
+
+.form__search .form__search_results .results--list li span, .form__search .form__search_results .results--list li a {
+    margin-right: 16px;
+    white-space: nowrap
+}
+
+.form__search .form__search_results .results--list li a {
+    color: var(--secondary);
+    transition: all var(--transition-speed) ease;
+}
+
+.form__search .form__search_results .results--list li a:hover {
+    color: var(--tertiary);
+}
+
+.form__search .form__search_results .results--list li b {
+    background-color: var(--white-6); /* deprecation fallback */
+    background-color: color-mix(in srgb, var(--white-6) 70%, var(--yellow-1));
+}
+
+.form__search.focus .icon-search {
+    fill: var(--primary) !important
+}
+
+.form__search.value .icon-search {
+    fill: var(--primary) !important
+}
+
+.form__search.value .search-clear {
+    opacity: 1!important
+}
+
+.form__search input {
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    color: var(--gray-7);
+}
+
+.form__search button[type='submit'] {
+    margin-right: 8px
+}
+
+.form__search .icon-search {
+    font-size: 19.7px
+}
+
+.form__search .form__control {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    height: 70%;
+    cursor: pointer
+}
+
+.form__search .form__control::-webkit-input-placeholder,
+.form__search .form__control::-moz-placeholder,
+.form__search .form__control:-moz-placeholder {
+    color: var(--gray-2);
+    transition: all var(--transition-speed) ease;
+}
+.form__search .form__control:-ms-input-placeholder {
+    color: var(--gray-2);
+    transition: all var(--transition-speed) ease;
+}
+
+.form__search .form__control:hover::-webkit-input-placeholder,
+.form__search .form__control:hover::-moz-placeholder,
+.form__search .form__control:hover:-moz-placeholder {
+    color: var(--secondary);
+}
+.form__search .form__control:hover:-ms-input-placeholder {
+    color: var(--secondary);
+}
+
+.form__search.type .form__control {
+    cursor: initial
+}
+
+.block--attach {
+    margin-top: 8px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: .1px;
+    transition: all var(--transition-speed) ease
+}
+
+.block--attach input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer!important
+}
+
+.block--attach .icon-attach {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px
+}
+
+@media screen and (max-width: 899px) {
+    .form__search .form__search_results .results--list li {
+        font-size: 13px
+    }
+}
+
+#submit-as-div .label {
+    background-color: var(--secondary);
+    border-radius: 0 2px 2px 0;
+}
+
+#submit-as-div .label span {
+    border: 1px solid var(--secondary);
+    outline: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400!important;
+    border-radius: 2px 0 0 2px;
+    min-width: 152px;
+    height: 40px;
+    background-color: var(--main-background);
+    color: var(--secondary);
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    padding: 0;
+    margin-left: 0;
+}
+
+#submit-as-div .label .icon-chevron-down {
+    fill: var(--surface);
+    margin-left: 6px;
+    margin-right: 6px
+}
+.block--submit .btn-border {
+    padding: 5px 12px
+}
+.form input.form-control, .form textarea.form-control {
+    transition: all var(--transition-time-pri) ease
+}
+.form select.form-control {
+    transition: all var(--transition-time-pri) ease;
+}
+.form__search .form__search_type .type--list li {
+    transition: all var(--transition-time-pri) ease;
+}
+.form__search .form__search_type .type--list li .icon {
+    transition: all var(--transition-time-pri) ease;
+}
+.form input.form-control,
+.form textarea.form-control {
+    vertical-align: middle;
+}

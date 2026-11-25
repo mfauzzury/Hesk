@@ -1,0 +1,159 @@
+/*
+Put any leftover/misc css here
+*/
+.c_battleship-grey {
+    color: var(--secondary)
+}
+
+.badge {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    background-color: var(--red-2); /* WCAG contrast improvement */
+    font-size: 8px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: .1px;
+    text-align: center;
+    color: var(--surface);
+    border-radius: 50%;
+}
+
+.accordion .accordion-title {
+    cursor: pointer
+}
+
+.accordion .accordion-body {
+    display: none
+}
+
+.accordion.visible .accordion-title svg {
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.users-online {
+    margin: 20px;
+    box-shadow: var(--shadow_med) var(--shadow-1-10);
+    background-color: var(--surface);
+    padding: 12px 16px
+}
+
+.kbCatListON {
+    background-color: color-mix(in srgb, var(--warning-2) 75%, var(--yellow-1) 25%)
+}
+.plain_link {
+    font-weight: 400
+}
+
+.is-online {
+    fill: color-mix(in srgb, var(--yellow-2) 66%, var(--red-2) 34%);
+    margin-right: 10px;
+}
+
+.is-offline {
+    fill: var(--white-9);
+    margin-right: 10px;
+}
+
+/*Custom Priority */
+.priority_img{
+    width: 16px;
+    height: 0px;
+    border-right: 3.5px solid transparent;
+    border-top: 7px solid var(--black-1);
+    border-left: 7px solid var(--black-1);
+    border-bottom: 7px solid var(--black-1);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 0px;
+    display: inline-flex;
+    margin:auto;
+}
+.priority_dwn{
+    margin-left:4px;
+    margin-right:10px;
+}
+.td-flex{
+    display: inline-flex;
+}
+.p-title{
+    margin-left:5px;
+}
+.priority_note{
+    color: var(--red-1);
+    font-size: 12px;
+}
+.ui-sortable-handle{
+    cursor: text;
+    touch-action: none;
+}
+.ui-state-disabled{
+    cursor:no-drop;
+}
+.ml5{
+    margin-left:5px;
+}
+.pdt3{
+    padding-top:3px;
+}
+.icon-drag-drop{
+    width: 1em;
+    height: 1em;
+    fill: var(--secondary);
+}
+/*Custom Priority */
+
+/*Link Ticket CSS*/
+.mb-10{
+    margin-bottom:10px;
+}
+.mb-5{
+    margin-bottom:5px;
+}
+.linked_ticket_html.mb-5 {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+}
+.linked_ticket_html .dot + a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.btn-links {
+    background-color: var(--secondary);
+    color: var(--white-1);
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+    border: 1px solid var(--primary);
+    display: inline;
+    padding: 2px 12px;
+    height:25px;
+}
+.linked, .cancel{
+    width: 100px !important;
+    min-width: 100px;
+}
+.ml-10{
+    margin-left:10px
+}
+.d-inline-flex{
+    display: inline-flex;
+}
+.d_show{
+    display: block;
+}
+.d_hide{
+    display: none;
+}
+/*Link Ticket CSS*/

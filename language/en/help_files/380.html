@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Interactive help for Hesk settings</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="help_style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- next: 6 -->
+
+<h3>Interactive help for Hesk settings</h3>
+
+<p>&nbsp;</p>
+
+<a name="1"></a><p class="title">Enable password expiration</p>
+<p>This feature improves account security by requiring users to change their password after a set period of time.</p>
+<p>It can help reduce the risk of unauthorized access caused by long-term password reuse, leaked credentials, or compromised accounts.</p>
+<p>You can configure separate password expiration periods for:</p>
+<ul>
+    <li>Staff accounts</li>
+    <li>Customer accounts</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="#" onclick="Javascript:window.close()">Close window</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<a name="2"></a><p class="title">Password complexity</p>
+<p>This feature lets you define minimum security requirements for user passwords.</p>
+<p>You can configure:</p>
+<ul>
+    <li>Minimum password length</li>
+    <li>Minimum number of lowercase letters</li>
+    <li>Minimum number of uppercase letters</li>
+    <li>Minimum number of numbers</li>
+    <li>Minimum number of special characters</li>
+    <li>Do not allow reuse of the last X passwords</li>
+    <li>Detect and block common / weak passwords</li>
+</ul>
+<p>Passwords must meet all configured requirements before they are accepted.</p>
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="#" onclick="Javascript:window.close()">Close window</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<a name="3"></a><p class="title">Force password expiration</p>
+<p>This tool lets administrators immediately expire all staff or customer passwords.</p>
+<p>After passwords are expired, affected users must reset their password before they can log in again.</p>
+<p>This can be useful in situations such as:</p>
+<ul>
+    <li>A suspected security breach</li>
+    <li>Password policy changes</li>
+    <li>Periodic mandatory password resets</li>
+    <li>Employee offboarding</li>
+    <li>Company-wide security enforcement</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="#" onclick="Javascript:window.close()">Close window</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<a name="4"></a><p class="title">Allowed customer email domains</p>
+<p>Use this setting to restrict email domains for new customer registrations and new tickets from unregistered customers, including tickets submitted by email.</p>
+<p>Leave the list empty to allow all domains. Otherwise, enter one domain per line, for example:</p>
+example.com<br>
+school.example
+<p>Domains match exactly, without regard to case. List subdomains separately, for example <b>support.example.com</b>. Wildcards such as <b>*.example.com</b> are not supported.</p>
+<p>This setting does not change <b>Require email</b>. If email is optional, customers can submit a ticket without an email address. If they provide an address, it must be valid and its domain must be allowed.</p>
+<p>New customer registrations still require an email address. Incoming email must have a valid sender address.</p>
+<p>Existing registered customers retain their usual access, including submitting new tickets. Existing ticket replies, followers, customer profile changes, and customers or tickets created by staff are unaffected.</p>
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="#" onclick="Javascript:window.close()">Close window</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<a name="5"></a><p class="title">Remove email subject prefixes</p>
+<p>Remove known banners from the subjects of new tickets created by email piping, POP3 or IMAP fetching. Leave the list empty to disable this feature.</p>
+<p>Enter one literal prefix per line, for example:</p>
+[EXTERNAL]<br>
+[*** CAUTION: EXTERNAL MAIL ***]
+<p>Each entry is removed wherever it appears in the subject. Matching is case-sensitive and treats entries as literal text. Wildcards and regular expressions are not used. Blank lines are ignored, and spaces around each entry are removed.</p>
+<p>For example, with <b>[EXTERNAL]</b> configured, <b>[EXTERNAL] Printer problem</b> becomes <b>Printer problem</b>. The text <b>[external]</b> is kept because the letter case differs.</p>
+
+<p>&nbsp;</p>
+<p align="center"><a href="#" onclick="Javascript:window.close()">Close window</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+# Local secrets / environment (copy hesk_settings.sample.inc.php to hesk_settings.inc.php and fill in)
+hesk_settings.inc.php
+# HESK licence file (private to the licence holder)
+hesk_license.php
+
+# Runtime files
+cache/*
+!cache/index.htm
+attachments/*
+!attachments/.htaccess
+!attachments/index.htm
+
+# OS / editor / temp
+.DS_Store
+zz_*
+*.log
+*.bak
